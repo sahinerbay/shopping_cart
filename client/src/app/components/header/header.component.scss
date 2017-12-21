@@ -1,0 +1,29 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 50px;
+	width: 95%;
+	margin: 0 auto;
+
+	@include sm {
+		width: 90%;
+	}
+
+	@include md {
+		width: 90%
+	}
+
+	@include lg {
+		width: 70%;
+	}
+}
+
+.menu {
+	display: grid;
+	@include columns(2);
+}

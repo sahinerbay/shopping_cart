@@ -1,0 +1,39 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.product {
+
+	position: relative;
+	z-index: 1;
+	font-family: $primary_font;
+
+		@include thumbnail;
+
+	&-center {
+		text-align: center;
+	}
+
+	&__image {
+
+	}
+
+	&__title {
+		color: $primary_color;
+	}
+
+	&__price {
+
+	}
+
+	&__button {
+
+		@include button;
+		z-index: 11;
+		
+		&:hover {
+			color:green;
+		}
+
+		
+	}
+}

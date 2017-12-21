@@ -1,0 +1,14 @@
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome.scss';
+@import './variables';
+@import './mixins';
+
+// $total: 12;
+
+// @function column-width($col) {  
+//  @return percentage($col/$total);  
+// }
+
+// @for $i from 1 through $total {  
+//  .col-#{$i} { width: column-width($i) };  
+// }

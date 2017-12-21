@@ -1,0 +1,37 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+main {
+	width: 95%;
+	margin: 50px auto 0;
+
+	@include sm {
+		width: 90%;
+	}
+
+	@include md {
+		width: 90%;
+	}
+
+	@include lg {
+		width: 70%;
+	}
+
+}
+.row {
+	display: grid;
+	margin: 0 auto;
+	@include columns(1);
+
+	@include sm {
+		@include columns(2);
+	}
+
+	@include md {
+		@include columns(3);
+	}
+
+	@include lg {
+		@include columns(4);
+	}
+}
