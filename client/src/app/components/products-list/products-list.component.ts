@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsHttpService } from './../../_services/products-http.service';
 import { ApiResponse } from './../../_interfaces/api-response';
-import { Products } from './../../_interfaces/products';
+import { Product } from './../../_interfaces/products';
 
 @Component({
 	selector: 'app-products-list',
@@ -12,7 +12,7 @@ export class ProductsListComponent implements OnInit {
 
 	constructor(private productsHttpService: ProductsHttpService) { }
 
-	private products: Array<Products>;
+	private products: Array<Product>;
 
 	ngOnInit() {
 		this.productsHttpService.getProducts().subscribe((response: ApiResponse) => {

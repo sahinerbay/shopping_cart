@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  API_URI: "http://localhost:3000/api/products"
+  API_URI: "http://localhost:3000/api/products",
+  LOCAL_STORAGE_KEY: "cart"
 };

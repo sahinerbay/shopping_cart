@@ -1,10 +1,12 @@
 /*MODULES*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 /*SERVICES*/
 import { ProductsHttpService } from './_services/products-http.service';
+import { ShoppingCartService } from './_services/shopping-cart.service';
+import { LocalStorageService, StorageService } from './_services/storage.service';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -17,20 +19,24 @@ import { ShoppingCartComponent } from './components/header/shopping-cart/shoppin
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductsListComponent,
-    ProductComponent,
-    HeaderComponent,
-    AddButtonComponent,
-    LogoComponent,
-    ShoppingCartComponent,
-  ],
-  imports: [
-	 BrowserModule,
-	 HttpClientModule
-  ],
-  providers: [ProductsHttpService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ProductsListComponent,
+		ProductComponent,
+		HeaderComponent,
+		AddButtonComponent,
+		LogoComponent,
+		ShoppingCartComponent,
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule
+	],
+	providers: [
+		ProductsHttpService, 
+		ShoppingCartService, 
+		LocalStorageService,
+		{ provide: StorageService, useClass: LocalStorageService },],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
