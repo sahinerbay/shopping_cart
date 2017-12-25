@@ -1,0 +1,9 @@
+.shopping-cart {
+    display: flex;
+    height: 50px;
+    justify-content: flex-end;
+
+    &__icon {
+        max-height: 100%;
+    }
+}

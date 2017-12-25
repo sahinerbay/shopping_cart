@@ -25,5 +25,6 @@ header {
 
 .menu {
 	display: grid;
+	height: 100%;
 	@include columns(2);
 }

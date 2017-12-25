@@ -1,7 +1,7 @@
-import { Products } from './products';
+import { Cart } from './cart';
 
 export interface ApiResponse {
 	status: string,
 	message: string,
-	data: Array<Products>
+	data: Array<Cart>
 }

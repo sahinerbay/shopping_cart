@@ -16,6 +16,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { AddButtonComponent } from './components/shared/add-button/add-button.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 import { ShoppingCartComponent } from './components/header/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
+import { ProductImageComponent } from './components/shared/product-image/product-image.component';
+import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
+import { ProductTitleComponent } from './components/shared/product-title/product-title.component';
+import { ShoppingCartModalComponent } from './components/header/shopping-cart/shopping-cart-modal/shopping-cart-modal.component';
 
 
 @NgModule({
@@ -27,6 +32,11 @@ import { ShoppingCartComponent } from './components/header/shopping-cart/shoppin
 		AddButtonComponent,
 		LogoComponent,
 		ShoppingCartComponent,
+		CheckoutComponent,
+		ProductImageComponent,
+		ProductPriceComponent,
+		ProductTitleComponent,
+		ShoppingCartModalComponent,
 	],
 	imports: [
 		BrowserModule,

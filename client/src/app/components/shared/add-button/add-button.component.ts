@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Cart } from './../../../_interfaces/cart';
-import { Product } from './../../../_interfaces/products';
 import { ShoppingCartService } from './../../../_services/shopping-cart.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class AddButtonComponent implements OnInit {
 
 	constructor(private shoppingCartService: ShoppingCartService) { }
 
-	@Input() product: Product;
+	@Input() product: Cart;
 
 	ngOnInit() {
 	}
@@ -21,7 +20,9 @@ export class AddButtonComponent implements OnInit {
 
 		let cart: Cart = {
 			product_id: product._id,
-			price: product.price,
+			title: product.title,
+			unitPrice: product.unitPrice,
+			imagePath: product.imagePath,
 			quantity: quantity
 		}
 		this.shoppingCartService.addItem(cart);

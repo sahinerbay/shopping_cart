@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable";
-import { Product } from './../_interfaces/products';
 import { Cart } from './../_interfaces/cart';
 import { ShoppingCart } from './../_classes/shopping-cart';
 import { StorageService } from './storage.service';
 import { environment } from './../../environments/environment';
-import { Subject } from 'rxjs/Subject';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class ShoppingCartService {
 
 	private storage: Storage;
 
-	private currentStateShoppingCart = new Subject();
+	private currentStateShoppingCart = new ReplaySubject<ShoppingCart>();
 
 	getState(): Observable<any> {
+		this.currentStateShoppingCart.next(this.load())
 		return this.currentStateShoppingCart.asObservable();
 	}
 
@@ -25,18 +25,24 @@ export class ShoppingCartService {
 	public addItem(cart: Cart) {
 		let shoppingCart = this.load();
 
-		for (let product of shoppingCart.items) {
-			if (product.product_id === cart.product_id) {
-				product.price = cart.price;
-				product.quantity += cart.quantity;
+		let isEmpty = ShoppingCart.isEmpty(shoppingCart);
+		let isProductFound = ShoppingCart.findItem(shoppingCart.items, cart.product_id);
 
-				shoppingCart.totalPrice = this.calculateTotal(shoppingCart);
-				this.save(shoppingCart);
-				return;
+		if (isEmpty || !isProductFound) {
+			let item: Cart = {
+				product_id: cart.product_id,
+				title: cart.title,
+				imagePath: cart.imagePath,
+				unitPrice: cart.unitPrice,
+				quantity: 1
 			}
+			shoppingCart.items.push(item);
+		} else {
+			ShoppingCart.updateItemQuantity(shoppingCart.items, cart.product_id);
 		}
-		shoppingCart.totalPrice = this.calculateTotal(shoppingCart);
-		shoppingCart.items.push(cart);
+
+		shoppingCart.totalPrice = this.calculateTotalPrice(shoppingCart);
+		shoppingCart.totalQuantity = this.calculateTotalQuantity(shoppingCart);
 		this.save(shoppingCart);
 	}
 
@@ -55,16 +61,24 @@ export class ShoppingCartService {
 	}
 
 	public load(): ShoppingCart {
+		let shoppingCart = new ShoppingCart();
+
 		let shoppingCartObject = JSON.parse(localStorage.getItem(environment.LOCAL_STORAGE_KEY));
-		if (shoppingCartObject === null) {
-			return new ShoppingCart([], 0);
+		if (shoppingCartObject !== null) {
+			shoppingCart.update(shoppingCartObject);
 		}
-		return new ShoppingCart(shoppingCartObject.items, shoppingCartObject.totalPrice);
+		return shoppingCart;
 	}
 
-	public calculateTotal(shoppingCart: ShoppingCart) {
+	public calculateTotalPrice(shoppingCart: ShoppingCart) {
 		return shoppingCart.items
-			.map((item: Cart) => item.quantity * shoppingCart.items.find((p) => p.product_id === item.product_id).price)
+			.map((item: Cart) => item.quantity * shoppingCart.items.find((p) => p.product_id === item.product_id).unitPrice)
+			.reduce((previous, current) => previous + current, 0)
+	}
+
+	public calculateTotalQuantity(shoppingCart: ShoppingCart) {
+		return shoppingCart.items
+			.map((item: Cart) => item.quantity)
 			.reduce((previous, current) => previous + current, 0)
 	}
 

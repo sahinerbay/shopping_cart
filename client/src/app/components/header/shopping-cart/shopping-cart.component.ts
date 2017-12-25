@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from './../../../_services/shopping-cart.service';
+import { ShoppingCart } from './../../../_classes/shopping-cart';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -10,11 +12,27 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
+  private shoppingCart: ShoppingCart;
+  private isModalActive: boolean = false;
+  
   ngOnInit() {
-	  this.shoppingCartService.getState()
-	  	.subscribe((res) => {
-			  console.log(res)
-		  })
+    this.fetchShoppingCart();
+  }
+
+  fetchShoppingCart():void {
+    this.shoppingCartService.getState()
+      .subscribe((shoppingCart: ShoppingCart) => {
+        this.shoppingCart = shoppingCart;
+        console.log('hello')
+      });
+  }
+
+  setModalActive():void {
+    this.isModalActive = true;
+  }
+
+  emptyCart() {
+    this.shoppingCartService.emptyCart()
   }
 
 }

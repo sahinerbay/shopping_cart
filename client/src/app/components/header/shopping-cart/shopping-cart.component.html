@@ -1,1 +1,12 @@
-<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+<div class="shopping-cart">
+    <a (mouseenter)="setModalActive()">
+        <img class="shopping-cart__icon" src="assets/shopping-basket.png" alt="">
+        <p>{{shoppingCart?.totalQuantity}}</p>
+        <p>{{shoppingCart?.totalPrice}}</p>
+    </a>
+    <p (click) ="emptyCart()">empty cart</p>
+</div>
+
+
+
+<app-shopping-cart-modal [products] ="shoppingCart"></app-shopping-cart-modal>
