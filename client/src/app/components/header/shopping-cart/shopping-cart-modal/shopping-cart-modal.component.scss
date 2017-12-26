@@ -1,0 +1,52 @@
+:host {
+	position: absolute;
+	right: 10px;
+	left: 10px;
+	top: 70px;
+	background: white;
+	border: thin solid rgba(0,0,0,.04);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,.13), 0 4px 8px 0 rgba(0,0,0,.13), 0 16px 32px 0 rgba(0,0,0,.13);
+	border-radius: 4px;
+	padding: 10px;
+
+}
+
+.shopping-cart-list {
+
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		list-style: none;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: -10px;
+		right: 35px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 10px solid rgba(150, 123, 104, 0.6509803921568628);
+		
+	}
+
+	& /deep/ .product-image {
+		height: 50px;
+	}
+
+	& /deep/ app-product-title {
+		flex-grow: 5;
+	}
+
+	& /deep/ app-delete-icon {
+		flex-grow: 2;
+		text-align: right;
+	}
+
+
+}

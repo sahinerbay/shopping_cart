@@ -1,38 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ShoppingCartService } from './../../../_services/shopping-cart.service';
+import { ShoppingCartModalService } from './../../../_services/shopping-cart-modal.service';
 import { ShoppingCart } from './../../../_classes/shopping-cart';
 import { Observable } from "rxjs/Observable";
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.scss']
+	selector: 'app-shopping-cart',
+	templateUrl: './shopping-cart.component.html',
+	styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService, private elementRef: ElementRef) { }
 
-  private shoppingCart: ShoppingCart;
-  private isModalActive: boolean = false;
-  
-  ngOnInit() {
-    this.fetchShoppingCart();
-  }
+	private shoppingCart: ShoppingCart;
+	private isModalActive: boolean = false;
 
-  fetchShoppingCart():void {
-    this.shoppingCartService.getState()
-      .subscribe((shoppingCart: ShoppingCart) => {
-        this.shoppingCart = shoppingCart;
-        console.log('hello')
-      });
-  }
+	ngOnInit() {
+		this.fetchShoppingCart();
+		this.shoppingCartModalService.getModalActivity().subscribe((res) => this.isModalActive = res);
+	}
 
-  setModalActive():void {
-    this.isModalActive = true;
-  }
+	fetchShoppingCart(): void {
+		this.shoppingCartService.getState()
+			.subscribe((shoppingCart: ShoppingCart) => {
+				this.shoppingCart = shoppingCart;
+				console.log('hello')
+			});
+	}
 
-  emptyCart() {
-    this.shoppingCartService.emptyCart()
-  }
+	setModalActive(): void {
+			this.shoppingCartModalService.setModalInactive();
+
+	}
+
+	emptyCart() {
+		this.shoppingCartService.emptyCart();
+		this.isModalActive = false;
+	}
 
 }

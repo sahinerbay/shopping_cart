@@ -1,5 +1,10 @@
-<ul>
-  <li *ngFor="let product of products?.items">
-      {{product.title}} x {{product.quantity}}
-  </li>
+<ul class="shopping-cart-list">
+	<span class="shopping-cart-list__arrow"></span>
+	<li class="shopping-cart-list__item" *ngFor="let product of products?.items">
+		<app-product-image [imageSource]="product.imagePath"></app-product-image>
+		<app-product-title [productTitle]="product.title"></app-product-title>
+		<span>{{(product.quantity) * (product.unitPrice) | fixPrice}}</span>
+		<app-product-price [productPrice]="product.unitPrice"></app-product-price>
+		<app-delete-icon></app-delete-icon>
+	</li>
 </ul>

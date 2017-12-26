@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Cart } from './../../../_interfaces/cart';
 import { ShoppingCartService } from './../../../_services/shopping-cart.service';
+import { ShoppingCartModalService } from './../../../_services/shopping-cart-modal.service';
 
 @Component({
 	selector: 'app-add-button',
@@ -9,7 +10,7 @@ import { ShoppingCartService } from './../../../_services/shopping-cart.service'
 })
 export class AddButtonComponent implements OnInit {
 
-	constructor(private shoppingCartService: ShoppingCartService) { }
+	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService) { }
 
 	@Input() product: Cart;
 
@@ -25,7 +26,10 @@ export class AddButtonComponent implements OnInit {
 			imagePath: product.imagePath,
 			quantity: quantity
 		}
+		
 		this.shoppingCartService.addItem(cart);
+
+		this.shoppingCartModalService.setModalActive();
 	}
 
 }

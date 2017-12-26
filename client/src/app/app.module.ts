@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsHttpService } from './_services/products-http.service';
 import { ShoppingCartService } from './_services/shopping-cart.service';
 import { LocalStorageService, StorageService } from './_services/storage.service';
+import { ShoppingCartModalService } from './_services/shopping-cart-modal.service';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { ProductImageComponent } from './components/shared/product-image/product
 import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
 import { ProductTitleComponent } from './components/shared/product-title/product-title.component';
 import { ShoppingCartModalComponent } from './components/header/shopping-cart/shopping-cart-modal/shopping-cart-modal.component';
+import { ModalDirective } from './_directives/modal.directive';
+import { FixPricePipe } from './_pipes/fix-price.pipe';
+import { DeleteIconComponent } from './components/shared/delete-icon/delete-icon.component';
 
 
 @NgModule({
@@ -37,6 +41,9 @@ import { ShoppingCartModalComponent } from './components/header/shopping-cart/sh
 		ProductPriceComponent,
 		ProductTitleComponent,
 		ShoppingCartModalComponent,
+		ModalDirective,
+		FixPricePipe,
+		DeleteIconComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -46,7 +53,9 @@ import { ShoppingCartModalComponent } from './components/header/shopping-cart/sh
 		ProductsHttpService, 
 		ShoppingCartService, 
 		LocalStorageService,
-		{ provide: StorageService, useClass: LocalStorageService },],
+		{ provide: StorageService, useClass: LocalStorageService },
+		ShoppingCartModalService,
+		FixPricePipe],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
