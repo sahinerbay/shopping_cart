@@ -30,8 +30,8 @@ import { ShoppingCartModalComponent } from './components/header/shopping-cart/sh
 import { HomeComponent } from './components/pages/home/home.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 /*COMPONENTS-SHARED*/
-import { AddButtonComponent } from './components/shared/add-button/add-button.component';
-import { DeleteIconComponent } from './components/shared/delete-icon/delete-icon.component';
+import { AddButtonComponent } from './components/shared/buttons/add-button/add-button.component';
+import { RemoveButtonComponent } from './components/shared/buttons/remove-button/remove-button.component';
 import { ProductImageComponent } from './components/shared/product/product-image/product-image.component';
 import { ProductPriceComponent } from './components/shared/product/product-price/product-price.component';
 import { ProductTitleComponent } from './components/shared/product/product-title/product-title.component';
@@ -53,12 +53,12 @@ import { ProductTotalPriceComponent } from './components/shared/product/product-
 		ProductTitleComponent,
 		ShoppingCartModalComponent,
 		FixPricePipe,
-		DeleteIconComponent,
 		DeleteIconHoverDirective,
 		ProductTotalQuantityComponent,
 		ProductTotalPriceComponent,
 		ShoppingCartModalDirective,
 		HomeComponent,
+		RemoveButtonComponent,
 	],
 	imports: [
 		BrowserModule,

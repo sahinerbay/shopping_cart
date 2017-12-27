@@ -17,7 +17,7 @@
 				<app-product-title [productTitle]="product.title"></app-product-title>
 				<app-product-total-price [productTotalPrice]="(product.quantity) * (product.unitPrice)"></app-product-total-price>
 				<app-product-price [productPrice]="product.unitPrice"></app-product-price>
-				<app-delete-icon appDeleteIconHover [productId]="product._id"></app-delete-icon>
+				<app-remove-button appDeleteIconHover [productId]="product._id"></app-remove-button>
 			</li>
 		</ul>
 
