@@ -26,10 +26,10 @@
 				<p class="shopping-cart-modal__content__footer__loaded__total-price">Total
 					<span class="shopping-cart-modal__content__footer__loaded__total-price__amount">{{products?.totalPrice | fixPrice}}</span>
 				</p>
-				<a class="shopping-cart-modal__content__footer__loaded__checkout">Checkout</a>
+				<a class="shopping-cart-modal__content__footer__loaded__checkout" routerLink="checkout">Checkout</a>
 			</div>
 			<div class="shopping-cart-modal__content__footer__empty" *ngIf="!isShoppingCartEmpty(products)">
-				<img class="shopping-cart-modal__content__footer__empty__icon" src="assets/shopping-basket.png" alt="">
+				<img class="shopping-cart-modal__content__footer__empty__icon" src="assets/shopping-basket.png" alt="No Products Added">
 				<p class="shopping-cart-modal__content__footer__empty__info">Shopping cart is empty</p>
 			</div>
 		</div>

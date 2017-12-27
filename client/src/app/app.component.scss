@@ -1,0 +1,21 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+main {
+	width: 95%;
+	margin: 80px auto 0;
+
+	// MEDIA QUERIES STARTS
+	@include sm {
+		width: $small_container_width;
+	}
+
+	@include md {
+		width: $medium_container_width;
+	}
+
+	@include lg {
+		width: $large_container_width;
+	}
+
+}

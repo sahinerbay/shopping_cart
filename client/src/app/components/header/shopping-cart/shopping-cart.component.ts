@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { ShoppingCartModalService } from './../../../_services/shopping-cart/shopping-cart-modal.service';
 import { ShoppingCartStateService } from './../../../_services/shopping-cart/shopping-cart-state.service';
@@ -13,7 +14,13 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ShoppingCartComponent implements OnInit, OnDestroy {
 
-	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService, private shoppingCartStateService: ShoppingCartStateService) { }
+	constructor(
+		private shoppingCartService: ShoppingCartService, 
+		private shoppingCartModalService: ShoppingCartModalService, 
+		private shoppingCartStateService: ShoppingCartStateService, 
+		private route: ActivatedRoute,
+		private router: Router, 
+	) { }
 
 	private modalSubsciption: Subscription;
 	private shoppingCartSubscription: Subscription;
@@ -24,7 +31,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.fetchShoppingCart();
 		this.getModalActivity();
-		console.log(this.getModalActivity())
+		this.route.url.subscribe((res)=> console.log(res))
+		console.log(this.router.url)
 	}
 
 	fetchShoppingCart(): Subscription {
