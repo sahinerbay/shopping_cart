@@ -1,0 +1,11 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.product__title {
+	font-family: $primary_font;
+	font-size: 1.3rem;
+
+	@include md {
+		font-size: 1.5rem;
+	}
+}

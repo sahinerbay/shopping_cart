@@ -2,6 +2,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome.scss';
 @import './variables';
 @import './mixins';
+@import './_global.scss';
 
 // $total: 12;
 
@@ -11,4 +12,18 @@ $fa-font-path: '~font-awesome/fonts';
 
 // @for $i from 1 through $total {  
 //  .col-#{$i} { width: column-width($i) };  
+// }
+// body {
+// 	position: relative;
+// }
+// body:before {
+// 	content: " ";
+// 	z-index: 10;
+// 	display: block;
+// 	position: absolute;
+// 	height: 100%;
+// 	top: 0;
+// 	left: 0;
+// 	right: 0;
+// 	background: rgba(0, 0, 0, 0.5);
 // }

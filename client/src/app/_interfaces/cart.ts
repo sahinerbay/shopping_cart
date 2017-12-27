@@ -2,7 +2,10 @@ export interface Cart {
 	product_id: string,
 	title: string
 	unitPrice: number,
-	imagePath: string,
+	imagePath: {
+		mobile: string,
+		desktop: string
+	},
 	totalPrice?: number,
 	quantity?: number,
 }

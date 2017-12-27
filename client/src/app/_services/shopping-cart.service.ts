@@ -41,21 +41,24 @@ export class ShoppingCartService {
 			ShoppingCart.updateItemQuantity(shoppingCart.items, cart.product_id);
 		}
 
-		shoppingCart.totalPrice = this.calculateTotalPrice(shoppingCart);
-		shoppingCart.totalQuantity = this.calculateTotalQuantity(shoppingCart);
+	
 		this.save(shoppingCart);
 	}
 
 	public removeItem(product_id: Cart["product_id"]) {
 		let shoppingCart = this.load();
-
-		shoppingCart.items.filter(product => product.product_id !== product_id)
-
-		this.save(shoppingCart);
+		let newShoppingCart = shoppingCart.items.filter(product => product.product_id !== product_id);
+	
+		this.save(Object.assign({}, shoppingCart, {
+			items: newShoppingCart
+		}));
 
 	}
 
 	public save(shoppingCart: ShoppingCart) {
+		shoppingCart.totalPrice = this.calculateTotalPrice(shoppingCart);
+		shoppingCart.totalQuantity = this.calculateTotalQuantity(shoppingCart);
+
 		this.currentStateShoppingCart.next(shoppingCart);
 		this.storage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(shoppingCart));
 	}

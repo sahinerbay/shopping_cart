@@ -1,0 +1,7 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.product__price {
+	font-family: $primary_font;
+	margin: 5px;
+}

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ShoppingCartService } from './../../../_services/shopping-cart.service';
 
 @Component({
   selector: 'app-delete-icon',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteIconComponent implements OnInit {
 
-  constructor() { }
+  constructor(private shoppingCartService: ShoppingCartService) { }
 
   ngOnInit() {
+  }
+
+  @Input() productId;
+
+  removeProduct(productId) {
+	this.shoppingCartService.removeItem(productId);
+	console.log(productId)
   }
 
 }

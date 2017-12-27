@@ -1,0 +1,12 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.product-image {
+	height: 64px;
+	width: 64px;
+
+	@include md {
+		height: 96px;
+		width: 96px;
+	}
+}

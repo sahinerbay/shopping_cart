@@ -1,10 +1,21 @@
-<ul class="shopping-cart-list">
-	<span class="shopping-cart-list__arrow"></span>
-	<li class="shopping-cart-list__item" *ngFor="let product of products?.items">
-		<app-product-image [imageSource]="product.imagePath"></app-product-image>
-		<app-product-title [productTitle]="product.title"></app-product-title>
-		<span>{{(product.quantity) * (product.unitPrice) | fixPrice}}</span>
-		<app-product-price [productPrice]="product.unitPrice"></app-product-price>
-		<app-delete-icon></app-delete-icon>
-	</li>
-</ul>
+<div class="modal">
+	<div class="modal__content">
+		<h2 class="modal__content__title">Shopping Cart</h2>
+		<i class="fa fa-times modal__content__close" aria-hidden="true"></i>
+		<span class="shopping-cart__total-quantity">{{products?.totalQuantity}}</span>
+		<ul class="shopping-cart-list">
+			<span class="shopping-cart-list__arrow"></span>
+			<li class="shopping-cart-list__item" *ngFor="let product of products?.items">
+				<app-product-image [imageSource]="product.imagePath"></app-product-image>
+				<app-product-title [productTitle]="product.title"></app-product-title>
+				<app-product-total-price [productTotalPrice]="(product.quantity) * (product.unitPrice)"></app-product-total-price>
+				<app-product-price [productPrice]="product.unitPrice"></app-product-price>
+				<!-- <app-product-total-quantity [productTotalQuantity]="product.quantity"></app-product-total-quantity> -->
+				<app-delete-icon appDeleteIconHover [productId]="product.product_id"></app-delete-icon>
+			</li>
+		</ul>
+		<p *ngIf="products?.items.length !== 0">Total {{products?.totalPrice | fixPrice}}</p>
+		<a *ngIf="products?.items.length !== 0">Checkout</a>
+		<p *ngIf="products?.items.length === 0">Shopping cart is empty</p>
+	</div>
+</div>

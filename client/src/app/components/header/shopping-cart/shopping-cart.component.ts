@@ -30,8 +30,7 @@ export class ShoppingCartComponent implements OnInit {
 	}
 
 	setModalActive(): void {
-			this.shoppingCartModalService.setModalInactive();
-
+		this.shoppingCartModalService.setModalActive();
 	}
 
 	emptyCart() {

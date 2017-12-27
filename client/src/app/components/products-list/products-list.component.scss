@@ -22,6 +22,7 @@ main {
 	display: grid;
 	margin: 0 auto;
 	text-align: center;
+	grid-row-gap: 40px;
 	@include columns(1);
 
 	@include sm {

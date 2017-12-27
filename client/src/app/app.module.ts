@@ -22,9 +22,12 @@ import { ProductImageComponent } from './components/shared/product-image/product
 import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
 import { ProductTitleComponent } from './components/shared/product-title/product-title.component';
 import { ShoppingCartModalComponent } from './components/header/shopping-cart/shopping-cart-modal/shopping-cart-modal.component';
-import { ModalDirective } from './_directives/modal.directive';
 import { FixPricePipe } from './_pipes/fix-price.pipe';
 import { DeleteIconComponent } from './components/shared/delete-icon/delete-icon.component';
+import { DeleteIconHoverDirective } from './_directives/delete-icon-hover.directive';
+import { ProductTotalQuantityComponent } from './components/shared/product-total-quantity/product-total-quantity.component';
+import { ProductTotalPriceComponent } from './components/shared/product-total-price/product-total-price.component';
+import { ShoppingCartModalDirective } from './_directives/shopping-cart-modal.directive';
 
 
 @NgModule({
@@ -41,9 +44,12 @@ import { DeleteIconComponent } from './components/shared/delete-icon/delete-icon
 		ProductPriceComponent,
 		ProductTitleComponent,
 		ShoppingCartModalComponent,
-		ModalDirective,
 		FixPricePipe,
 		DeleteIconComponent,
+		DeleteIconHoverDirective,
+		ProductTotalQuantityComponent,
+		ProductTotalPriceComponent,
+		ShoppingCartModalDirective,
 	],
 	imports: [
 		BrowserModule,

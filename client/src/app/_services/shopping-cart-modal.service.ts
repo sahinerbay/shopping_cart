@@ -15,6 +15,14 @@ export class ShoppingCartModalService {
 		this.isModalActive.next(false);
 	}
 
+	toggleModal(): void {
+		if(this.isModalActive.value === true) {
+			this.setModalInactive();
+		} else {
+			this.setModalActive();
+		}
+	}
+
 	getModalActivity(): Observable<boolean> {
 		return this.isModalActive.asObservable();
 	}
