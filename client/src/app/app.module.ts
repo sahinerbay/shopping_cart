@@ -5,9 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 /*SERVICES*/
 import { ProductsHttpService } from './_services/products-http.service';
-import { ShoppingCartService } from './_services/shopping-cart.service';
-import { LocalStorageService, StorageService } from './_services/storage.service';
-import { ShoppingCartModalService } from './_services/shopping-cart-modal.service';
+import { StorageService } from './_services/storage.service';
+import { ShoppingCartService } from './_services/shopping-cart/shopping-cart.service';
+import { ShoppingCartModalService } from './_services/shopping-cart/shopping-cart-modal.service';
+import { ShoppingCartStateService } from './_services/shopping-cart/shopping-cart-state.service';
+
+/*DIRECTIVES*/
+import { DeleteIconHoverDirective } from './_directives/delete-icon-hover.directive';
+import { ShoppingCartModalDirective } from './_directives/shopping-cart-modal.directive';
+
+/*PIPES*/
+import { FixPricePipe } from './_pipes/fix-price.pipe';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -22,12 +30,9 @@ import { ProductImageComponent } from './components/shared/product-image/product
 import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
 import { ProductTitleComponent } from './components/shared/product-title/product-title.component';
 import { ShoppingCartModalComponent } from './components/header/shopping-cart/shopping-cart-modal/shopping-cart-modal.component';
-import { FixPricePipe } from './_pipes/fix-price.pipe';
 import { DeleteIconComponent } from './components/shared/delete-icon/delete-icon.component';
-import { DeleteIconHoverDirective } from './_directives/delete-icon-hover.directive';
 import { ProductTotalQuantityComponent } from './components/shared/product-total-quantity/product-total-quantity.component';
 import { ProductTotalPriceComponent } from './components/shared/product-total-price/product-total-price.component';
-import { ShoppingCartModalDirective } from './_directives/shopping-cart-modal.directive';
 
 
 @NgModule({
@@ -57,9 +62,9 @@ import { ShoppingCartModalDirective } from './_directives/shopping-cart-modal.di
 	],
 	providers: [
 		ProductsHttpService, 
+		StorageService,
+		ShoppingCartStateService,
 		ShoppingCartService, 
-		LocalStorageService,
-		{ provide: StorageService, useClass: LocalStorageService },
 		ShoppingCartModalService,
 		FixPricePipe],
 	bootstrap: [AppComponent]

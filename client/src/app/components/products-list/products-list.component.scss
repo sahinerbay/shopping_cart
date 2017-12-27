@@ -5,35 +5,34 @@ main {
 	width: 95%;
 	margin: 80px auto 0;
 
+	.row {
+		display: grid;
+		margin: 0 auto;
+		text-align: center;
+		grid-row-gap: 40px;
+		@include columns(1);
+	}
+
+	// MEDIA QUERIES STARTS
 	@include sm {
-		width: 90%;
+		width: $small_container_width;
+		.row {
+			@include columns(2);
+		}
 	}
 
 	@include md {
-		width: 90%;
+		width: $medium_container_width;
+		.row {
+			@include columns(3);
+		}
 	}
 
 	@include lg {
-		width: 70%;
+		width: $large_container_width;
+		.row {
+			@include columns(4);
+		}
 	}
 
-}
-.row {
-	display: grid;
-	margin: 0 auto;
-	text-align: center;
-	grid-row-gap: 40px;
-	@include columns(1);
-
-	@include sm {
-		@include columns(2);
-	}
-
-	@include md {
-		@include columns(3);
-	}
-
-	@include lg {
-		@include columns(4);
-	}
 }

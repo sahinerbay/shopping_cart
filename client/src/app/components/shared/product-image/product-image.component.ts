@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cart } from './../../../_interfaces/cart';
 
 @Component({
   selector: 'app-product-image',
   templateUrl: './product-image.component.html',
   styleUrls: ['./product-image.component.scss']
 })
-export class ProductImageComponent implements OnInit {
+export class ProductImageComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  @Input() imageSource;
+  @Input() imagePath: Cart["imagePath"];
 
 }

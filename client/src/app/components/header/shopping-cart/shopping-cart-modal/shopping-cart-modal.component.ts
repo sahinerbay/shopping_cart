@@ -1,29 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ShoppingCartModalService } from './../../../../_services/shopping-cart-modal.service';
+import { Component, Input } from '@angular/core';
+import { ShoppingCartModalService } from './../../../../_services/shopping-cart/shopping-cart-modal.service';
 
 @Component({
-  selector: 'app-shopping-cart-modal',
-  templateUrl: './shopping-cart-modal.component.html',
-  styleUrls: ['./shopping-cart-modal.component.scss']
+	selector: 'app-shopping-cart-modal',
+	templateUrl: './shopping-cart-modal.component.html',
+	styleUrls: ['./shopping-cart-modal.component.scss']
 })
-export class ShoppingCartModalComponent implements OnInit {
+export class ShoppingCartModalComponent {
 
-  constructor(private shoppingCartModalService: ShoppingCartModalService) { }
+	constructor(private shoppingCartModalService: ShoppingCartModalService) { }
 
+	@Input() products;
 
-  ngOnInit() {
-  }
+	isShoppingCartEmpty(products): boolean {
+		if (products.items.length !== 0) {
+			return true;
+		}
+		return false;
+	}
 
-  @Input() products;
-
-  setModalInactive(event) {
-	  console.log(event.target.className)
-	// if (event.target.className === 'modal__content__close' || event.target.className === 'modal') {
-	// 	this.isModalActive = false;
-	// 	this.shareDataService.updateModalActivity(false);
-	// 	document.body.className = 'overflow-visible';
-	// }
-}
-
-  
 }

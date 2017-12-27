@@ -26,5 +26,4 @@ export class ShoppingCartModalService {
 	getModalActivity(): Observable<boolean> {
 		return this.isModalActive.asObservable();
 	}
-
 }

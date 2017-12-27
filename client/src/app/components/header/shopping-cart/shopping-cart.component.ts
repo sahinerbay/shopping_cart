@@ -1,31 +1,36 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { ShoppingCartService } from './../../../_services/shopping-cart.service';
-import { ShoppingCartModalService } from './../../../_services/shopping-cart-modal.service';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
+import { ShoppingCartModalService } from './../../../_services/shopping-cart/shopping-cart-modal.service';
+import { ShoppingCartStateService } from './../../../_services/shopping-cart/shopping-cart-state.service';
 import { ShoppingCart } from './../../../_classes/shopping-cart';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Rx';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
 	selector: 'app-shopping-cart',
 	templateUrl: './shopping-cart.component.html',
 	styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
 
-	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService, private elementRef: ElementRef) { }
+	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService, private shoppingCartStateService: ShoppingCartStateService) { }
+
+	private modalSubsciption: Subscription;
+	private shoppingCartSubscription: Subscription;
 
 	private shoppingCart: ShoppingCart;
 	private isModalActive: boolean = false;
 
 	ngOnInit() {
 		this.fetchShoppingCart();
-		this.shoppingCartModalService.getModalActivity().subscribe((res) => this.isModalActive = res);
+		this.getModalActivity();
+		console.log(this.getModalActivity())
 	}
 
-	fetchShoppingCart(): void {
-		this.shoppingCartService.getState()
+	fetchShoppingCart(): Subscription {
+		return this.shoppingCartStateService.getState()
 			.subscribe((shoppingCart: ShoppingCart) => {
 				this.shoppingCart = shoppingCart;
-				console.log('hello')
 			});
 	}
 
@@ -33,9 +38,12 @@ export class ShoppingCartComponent implements OnInit {
 		this.shoppingCartModalService.setModalActive();
 	}
 
-	emptyCart() {
-		this.shoppingCartService.emptyCart();
-		this.isModalActive = false;
+	getModalActivity(): Subscription {
+		return this.shoppingCartModalService.getModalActivity().subscribe((active: boolean) => this.isModalActive = active);
 	}
 
+	ngOnDestroy() {
+		this.modalSubsciption.unsubscribe();
+		this.shoppingCartSubscription.unsubscribe();
+	}
 }

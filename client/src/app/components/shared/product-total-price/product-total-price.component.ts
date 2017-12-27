@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cart } from './../../../_interfaces/cart';
 
 @Component({
-  selector: 'app-product-total-price',
-  templateUrl: './product-total-price.component.html',
-  styleUrls: ['./product-total-price.component.scss']
+	selector: 'app-product-total-price',
+	templateUrl: './product-total-price.component.html',
+	styleUrls: ['./product-total-price.component.scss']
 })
-export class ProductTotalPriceComponent implements OnInit {
+export class ProductTotalPriceComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  @Input() productTotalPrice;
+	@Input() productTotalPrice: Cart["totalPrice"];
 
 }

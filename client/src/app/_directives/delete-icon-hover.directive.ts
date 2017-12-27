@@ -19,5 +19,4 @@ export class DeleteIconHoverDirective {
 		const parent = this.renderer.parentNode(this.elRef.nativeElement);
 		this.renderer.setStyle(parent, "opacity", opacity)
 	}
-
 }

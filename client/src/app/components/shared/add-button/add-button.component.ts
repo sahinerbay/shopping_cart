@@ -1,35 +1,32 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cart } from './../../../_interfaces/cart';
-import { ShoppingCartService } from './../../../_services/shopping-cart.service';
-import { ShoppingCartModalService } from './../../../_services/shopping-cart-modal.service';
+import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
+import { ShoppingCartModalService } from './../../../_services/shopping-cart/shopping-cart-modal.service';
 
 @Component({
 	selector: 'app-add-button',
 	templateUrl: './add-button.component.html',
 	styleUrls: ['./add-button.component.scss']
 })
-export class AddButtonComponent implements OnInit {
+export class AddButtonComponent {
 
 	constructor(private shoppingCartService: ShoppingCartService, private shoppingCartModalService: ShoppingCartModalService) { }
 
 	@Input() product: Cart;
 
-	ngOnInit() {
-	}
-
-	addItem(product, quantity) {
-
+	addItem(product: Cart, quantity: number):void {
+		/*Create a Cart Object that will be added to local storage inside of ShoppingCart Class*/
 		let cart: Cart = {
-			product_id: product._id,
+			_id: product._id,
 			title: product.title,
 			unitPrice: product.unitPrice,
 			imagePath: product.imagePath,
-			quantity: quantity
 		}
-		
+
+		/* Add Product to Local Storage*/
 		this.shoppingCartService.addItem(cart);
 
+		/* Set Shopping Cart Modal Active */
 		this.shoppingCartModalService.setModalActive();
 	}
-
 }

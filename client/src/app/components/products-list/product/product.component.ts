@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, Input  } from '@angular/core';
 import { Cart } from './../../../_interfaces/cart';
 
 @Component({
@@ -6,13 +6,8 @@ import { Cart } from './../../../_interfaces/cart';
 	templateUrl: './product.component.html',
 	styleUrls: ['./product.component.scss'],
 })
-export class ProductComponent implements OnInit {
-
-	constructor() { }
+export class ProductComponent {
 
 	@Input() product: Cart;
-
-	ngOnInit() {
-	}
 
 }

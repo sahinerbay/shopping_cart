@@ -1,9 +1,8 @@
 <div class="shopping">
-	<a class="shopping-cart" (click)="setModalActive()">
-		<img class="shopping-cart__icon" [src]="shoppingCart?.totalQuantity > 0 ? 'assets/shopping-basket-loaded.png' : 'assets/shopping-basket.png'" alt="">
+	<a class="shopping-cart" (click)="setModalActive()" title="Shopping Cart Icon">
+		<img class="shopping-cart__icon" [src]="shoppingCart?.totalQuantity > 0 ? 'assets/shopping-basket-loaded.png' : 'assets/shopping-basket.png'" alt="Shopping Cart Icon">
 		<span class="shopping-cart__total-quantity">{{shoppingCart?.totalQuantity}}</span>
 	</a>
-	<!-- <p (click) ="emptyCart()">empty cart</p> -->
 </div>
 
 <app-shopping-cart-modal [products]="shoppingCart" *ngIf="isModalActive" appShoppingCartModal></app-shopping-cart-modal>

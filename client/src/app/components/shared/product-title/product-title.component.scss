@@ -4,6 +4,7 @@
 .product__title {
 	font-family: $primary_font;
 	font-size: 1.3rem;
+	text-transform: capitalize;
 
 	@include md {
 		font-size: 1.5rem;

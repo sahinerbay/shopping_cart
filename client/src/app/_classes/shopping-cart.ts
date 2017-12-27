@@ -13,12 +13,12 @@ export class ShoppingCart {
 	}
 
 	static findItem(items: Cart[], productId) {
-		return items.find((product) => product.product_id === productId);
+		return items.find((product) => product._id === productId);
 	}
 
 	static updateItemQuantity(items: Cart[], productId) {
 		for (let product of items) {
-			if (product.product_id === productId) {
+			if (product._id === productId) {
 				product.quantity ++;
 			}
 		}
