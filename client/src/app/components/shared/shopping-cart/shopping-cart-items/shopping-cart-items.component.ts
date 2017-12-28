@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 import { Cart } from './../../../../_interfaces/cart';
 
 @Component({
@@ -12,6 +12,8 @@ export class ShoppingCartItemsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @ContentChild(TemplateRef) templateRef:TemplateRef<any>;
 
   @Input() productsItems: Cart;
 

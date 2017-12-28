@@ -11,6 +11,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 export class ShoppingCartService {
 
 	private storage: Storage;
+	private shoppingCart: ShoppingCart;
 
 	constructor(private storageService: StorageService, private shoppingCartStateService: ShoppingCartStateService) {
 		this.storage = this.storageService.get();
@@ -18,7 +19,6 @@ export class ShoppingCartService {
 	}
 
 	public addItem(cart: Cart) {
-
 		/* Retrieve ShoppingCart Object */
 		let shoppingCart = this.load();
 
@@ -39,7 +39,7 @@ export class ShoppingCartService {
 		} 
 		/* When Product is Already in the Shopping Basket */
 		else {
-			ShoppingCart.updateItemQuantity(shoppingCart.items, cart._id);
+			ShoppingCart.increaseQuantity(shoppingCart.items, cart._id);
 		}
 
 		/* Save ShoppingCart Object */
@@ -53,12 +53,23 @@ export class ShoppingCartService {
 		this.save(Object.assign({}, shoppingCart, {
 			items: newShoppingCart
 		}));
+	}
 
+	public increaseItem(product_id: Cart["_id"]) {
+		let shoppingCart = this.load();
+		ShoppingCart.increaseQuantity(shoppingCart.items, product_id);
+		this.save(shoppingCart);
+	}
+
+	public decreaseItem(product_id: Cart["_id"]) {
+		let shoppingCart = this.load();
+		ShoppingCart.decreaseQuantity(shoppingCart.items, product_id);
+		this.save(shoppingCart);
 	}
 
 	public save(shoppingCart: ShoppingCart) {
-		shoppingCart.totalPrice = this.calculateTotalPrice(shoppingCart);
-		shoppingCart.totalQuantity = this.calculateTotalQuantity(shoppingCart);
+		shoppingCart.totalPrice = ShoppingCart.calculateTotalPrice(shoppingCart);
+		shoppingCart.totalQuantity = ShoppingCart.calculateTotalQuantity(shoppingCart);
 
 		this.shoppingCartStateService.setState(shoppingCart);
 		this.storage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(shoppingCart));
@@ -72,18 +83,6 @@ export class ShoppingCartService {
 			shoppingCart.update(shoppingCartObject);
 		}
 		return shoppingCart;
-	}
-
-	public calculateTotalPrice(shoppingCart: ShoppingCart) {
-		return shoppingCart.items
-			.map((item: Cart) => item.quantity * shoppingCart.items.find((product) => product._id === item._id).unitPrice)
-			.reduce((previous, current) => previous + current, 0)
-	}
-
-	public calculateTotalQuantity(shoppingCart: ShoppingCart) {
-		return shoppingCart.items
-			.map((item: Cart) => item.quantity)
-			.reduce((previous, current) => previous + current, 0)
 	}
 
 	public emptyCart() {

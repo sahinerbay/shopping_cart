@@ -29,6 +29,7 @@
 		3 : 1fr 1fr 1fr,
 		4 : 1fr 1fr 1fr 1fr,
   ), $size);
+  transition: 1s all;
 }
 
 @mixin button {
@@ -59,4 +60,27 @@
 		color: green;
 		cursor: pointer;
 	}
+}
+
+@mixin transition($size) {
+	transition: all $size;
+}
+
+/*Quantity Button Sizes*/
+@mixin quantityButtonSize {
+	width: 10px;
+	height: 10px;
+}
+
+/*Shopping Cart and Checkout Page*/
+@mixin productPrice {
+	margin: 0;
+	font-style: italic;
+}
+
+@mixin productTitle {
+	font-size: .8rem;
+	margin: 0;
+	font-weight: 600;
+	letter-spacing: .05rem;
 }

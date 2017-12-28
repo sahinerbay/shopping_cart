@@ -4,9 +4,11 @@
 .product-image {
 	height: 64px;
 	width: 64px;
-
+	@include transition(1s);
+	
 	@include md {
 		height: 96px;
 		width: 96px;
+		@include transition(1s);
 	}
 }

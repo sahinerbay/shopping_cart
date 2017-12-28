@@ -42,6 +42,7 @@ import { ShoppingCartTotalPriceComponent } from './components/shared/shopping-ca
 import { ShoppingCartEmptyComponent } from './components/shared/shopping-cart/shopping-cart-empty/shopping-cart-empty.component';
 import { CheckoutButtonComponent } from './components/shared/buttons/checkout-button/checkout-button.component';
 import { ShoppingCartItemsComponent } from './components/shared/shopping-cart/shopping-cart-items/shopping-cart-items.component';
+import { QuantityButtonComponent } from './components/shared/buttons/quantity-button/quantity-button.component';
 
 @NgModule({
 	declarations: [
@@ -69,6 +70,7 @@ import { ShoppingCartItemsComponent } from './components/shared/shopping-cart/sh
 		ShoppingCartEmptyComponent,
 		CheckoutButtonComponent,
 		ShoppingCartItemsComponent,
+		QuantityButtonComponent,
 	],
 	imports: [
 		BrowserModule,

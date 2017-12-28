@@ -5,5 +5,6 @@
 	<app-product-title [productTitle]="product.title"></app-product-title>
 	<app-product-total-price [productTotalPrice]="(product.quantity) * (product.unitPrice)"></app-product-total-price>
 	<app-product-price [productPrice]="product.unitPrice"></app-product-price>
+	<ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: (product)}"></ng-template>
 	<app-remove-button [productId]="product._id" appDeleteIconHover></app-remove-button>
 </li>

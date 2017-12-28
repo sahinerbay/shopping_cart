@@ -1,5 +1,16 @@
-<app-shopping-cart-title [totalQuantity]="shoppingCart.totalQuantity"></app-shopping-cart-title>
-<app-shopping-cart-items [productsItems]="shoppingCart.items"></app-shopping-cart-items>
+<div class="checkout__header">
+	<app-shopping-cart-title [totalQuantity]="shoppingCart.totalQuantity"></app-shopping-cart-title>
+</div>
+
+<div class="checkout__main" *ngIf="isShoppingCartEmpty(shoppingCart)">
+	<ul class="checkout__main__list">
+		<app-shopping-cart-items [productsItems]="shoppingCart.items">
+			<ng-template let-product>
+				<app-quantity-button [productId]="product._id" [productQuantity]="product.quantity"></app-quantity-button>
+			</ng-template>
+		</app-shopping-cart-items>
+	</ul>
+</div>
 
 <div class="checkout__footer">
 	<div class="checkout__footer__loaded" *ngIf="isShoppingCartEmpty(shoppingCart)">

@@ -6,10 +6,13 @@
 			<i class="fa fa-times shopping-cart-modal__content__header__close" aria-hidden="true"></i>
 		</div>
 
-		<ul class="shopping-cart-modal__content__list" *ngIf="isShoppingCartEmpty(products)">
-			<span class="shopping-cart-modal__content__list__arrow"></span>
-			<app-shopping-cart-items [productsItems]="products.items"></app-shopping-cart-items>
-		</ul>
+		<div class="shopping-cart-modal__content__main" *ngIf="isShoppingCartEmpty(products)">
+			<ul class="shopping-cart-modal__content__main__list">
+				<span class="shopping-cart-modal__content__main__list__arrow"></span>
+				<app-shopping-cart-items [productsItems]="products.items"></app-shopping-cart-items>
+			</ul>
+		</div>
+
 
 		<div class="shopping-cart-modal__content__footer">
 			<div class="shopping-cart-modal__content__footer__loaded" *ngIf="isShoppingCartEmpty(products)">
