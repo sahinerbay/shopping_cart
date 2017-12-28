@@ -1,3 +1,11 @@
-<p>
-  checkout works!
-</p>
+<app-shopping-cart-title [totalQuantity]="shoppingCart.totalQuantity"></app-shopping-cart-title>
+<app-shopping-cart-items [productsItems]="shoppingCart.items"></app-shopping-cart-items>
+
+<div class="checkout__footer">
+	<div class="checkout__footer__loaded" *ngIf="isShoppingCartEmpty(shoppingCart)">
+		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
+	</div>
+	<div class="checkout__footer__empty" *ngIf="!isShoppingCartEmpty(shoppingCart)">
+		<app-shopping-cart-empty></app-shopping-cart-empty>
+	</div>
+</div>
