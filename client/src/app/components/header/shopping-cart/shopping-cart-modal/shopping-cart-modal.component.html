@@ -2,35 +2,22 @@
 	<div class="shopping-cart-modal__content">
 
 		<div class="shopping-cart-modal__content__header">
-			<h2 class="shopping-cart-modal__content__header__title">Shopping Cart
-				<span class="shopping-cart-modal__content__header__title__total-quantity">{{products?.totalQuantity}}</span>
-			</h2>
+			<app-shopping-cart-title [totalQuantity]="products.totalQuantity"></app-shopping-cart-title>
 			<i class="fa fa-times shopping-cart-modal__content__header__close" aria-hidden="true"></i>
 		</div>
 
-		<ul class="shopping-cart-list" *ngIf="isShoppingCartEmpty(products)">
-			<span class="shopping-cart-list__arrow"></span>
-			<li class="shopping-cart-list__item" *ngFor="let product of products?.items">
-				<app-product-image [imagePath]="product.imagePath">
-					<app-product-total-quantity [productTotalQuantity]="product.quantity"></app-product-total-quantity>
-				</app-product-image>
-				<app-product-title [productTitle]="product.title"></app-product-title>
-				<app-product-total-price [productTotalPrice]="(product.quantity) * (product.unitPrice)"></app-product-total-price>
-				<app-product-price [productPrice]="product.unitPrice"></app-product-price>
-				<app-remove-button appDeleteIconHover [productId]="product._id"></app-remove-button>
-			</li>
+		<ul class="shopping-cart-modal__content__list" *ngIf="isShoppingCartEmpty(products)">
+			<span class="shopping-cart-modal__content__list__arrow"></span>
+			<app-shopping-cart-items [productsItems]="products.items"></app-shopping-cart-items>
 		</ul>
 
 		<div class="shopping-cart-modal__content__footer">
 			<div class="shopping-cart-modal__content__footer__loaded" *ngIf="isShoppingCartEmpty(products)">
-				<p class="shopping-cart-modal__content__footer__loaded__total-price">Total
-					<span class="shopping-cart-modal__content__footer__loaded__total-price__amount">{{products?.totalPrice | fixPrice}}</span>
-				</p>
-				<a class="shopping-cart-modal__content__footer__loaded__checkout" routerLink="checkout">Checkout</a>
+				<app-shopping-cart-total-price [totalPrice]="products.totalPrice"></app-shopping-cart-total-price>
+				<app-checkout-button></app-checkout-button>
 			</div>
 			<div class="shopping-cart-modal__content__footer__empty" *ngIf="!isShoppingCartEmpty(products)">
-				<img class="shopping-cart-modal__content__footer__empty__icon" src="assets/shopping-basket.png" alt="No Products Added">
-				<p class="shopping-cart-modal__content__footer__empty__info">Shopping cart is empty</p>
+				<app-shopping-cart-empty></app-shopping-cart-empty>
 			</div>
 		</div>
 

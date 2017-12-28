@@ -37,6 +37,11 @@ import { ProductPriceComponent } from './components/shared/product/product-price
 import { ProductTitleComponent } from './components/shared/product/product-title/product-title.component';
 import { ProductTotalQuantityComponent } from './components/shared/product/product-total-quantity/product-total-quantity.component';
 import { ProductTotalPriceComponent } from './components/shared/product/product-total-price/product-total-price.component';
+import { ShoppingCartTitleComponent } from './components/shared/shopping-cart/shopping-cart-title/shopping-cart-title.component';
+import { ShoppingCartTotalPriceComponent } from './components/shared/shopping-cart/shopping-cart-total-price/shopping-cart-total-price.component';
+import { ShoppingCartEmptyComponent } from './components/shared/shopping-cart/shopping-cart-empty/shopping-cart-empty.component';
+import { CheckoutButtonComponent } from './components/shared/buttons/checkout-button/checkout-button.component';
+import { ShoppingCartItemsComponent } from './components/shared/shopping-cart/shopping-cart-items/shopping-cart-items.component';
 
 @NgModule({
 	declarations: [
@@ -59,6 +64,11 @@ import { ProductTotalPriceComponent } from './components/shared/product/product-
 		ShoppingCartModalDirective,
 		HomeComponent,
 		RemoveButtonComponent,
+		ShoppingCartTitleComponent,
+		ShoppingCartTotalPriceComponent,
+		ShoppingCartEmptyComponent,
+		CheckoutButtonComponent,
+		ShoppingCartItemsComponent,
 	],
 	imports: [
 		BrowserModule,
