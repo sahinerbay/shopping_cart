@@ -3,6 +3,7 @@ import { ShoppingCartStateService } from './../../../_services/shopping-cart/sho
 import { ShoppingCart } from './../../../_classes/shopping-cart';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
 	selector: 'app-checkout',
@@ -11,13 +12,17 @@ import { Observable } from 'rxjs/Observable';
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
 
-	constructor(private shoppingCartStateService: ShoppingCartStateService) { }
+	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute,) {
+		
+	 }
 
 	private shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
 
 	ngOnInit() {
 		this.shoppingCartSubscription = this.loadShoppingCart();
+		console.log(this.router.url);
+		this.route.url.subscribe((res)=> console.log(res))
 	}
 
 	loadShoppingCart(): Subscription {

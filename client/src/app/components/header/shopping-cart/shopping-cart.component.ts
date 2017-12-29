@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { ShoppingCartModalService } from './../../../_services/shopping-cart/shopping-cart-modal.service';
 import { ShoppingCartStateService } from './../../../_services/shopping-cart/shopping-cart-state.service';
@@ -18,8 +17,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 		private shoppingCartService: ShoppingCartService, 
 		private shoppingCartModalService: ShoppingCartModalService, 
 		private shoppingCartStateService: ShoppingCartStateService, 
-		private route: ActivatedRoute,
-		private router: Router, 
 	) { }
 
 	private modalSubsciption: Subscription;
@@ -31,8 +28,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.fetchShoppingCart();
 		this.getModalActivity();
-		this.route.url.subscribe((res)=> console.log(res))
-		console.log(this.router.url)
 	}
 
 	fetchShoppingCart(): Subscription {

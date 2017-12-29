@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ShoppingCartModalService } from './../../../../_services/shopping-cart/shopping-cart-modal.service';
 
 @Component({
-  selector: 'app-checkout-button',
-  templateUrl: './checkout-button.component.html',
-  styleUrls: ['./checkout-button.component.scss']
+	selector: 'app-checkout-button',
+	templateUrl: './checkout-button.component.html',
+	styleUrls: ['./checkout-button.component.scss']
 })
-export class CheckoutButtonComponent implements OnInit {
+export class CheckoutButtonComponent {
 
-  constructor() { }
+	constructor(private shoppingCartModalService: ShoppingCartModalService) { }
 
-  ngOnInit() {
-  }
-
+	onCheckOut() {
+		this.shoppingCartModalService.setModalInactive();
+	}
 }

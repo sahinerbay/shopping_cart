@@ -14,6 +14,7 @@
 
 <div class="checkout__footer">
 	<div class="checkout__footer__loaded" *ngIf="isShoppingCartEmpty(shoppingCart)">
+		<p class="checkout__footer__total-items">{{shoppingCart.totalQuantity}} items</p>
 		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
 	</div>
 	<div class="checkout__footer__empty" *ngIf="!isShoppingCartEmpty(shoppingCart)">

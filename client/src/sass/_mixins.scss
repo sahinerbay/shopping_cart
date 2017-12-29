@@ -32,6 +32,16 @@
   transition: 1s all;
 }
 
+@mixin rows($size) {
+	grid-template-rows: map-get((
+		 1 : 1fr,
+		 2 : 1fr 1fr,
+		 3 : 1fr 1fr 1fr,
+		 4 : 1fr 1fr 1fr 1fr,
+	), $size);
+	transition: 1s all;
+ }
+
 @mixin button {
 	display: inline-block;
 	padding: 10px 35px;
