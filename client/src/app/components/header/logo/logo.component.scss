@@ -16,8 +16,15 @@
 
 	&__link__title {
 		font-family: $primary_font;
-		font-size: 1rem;
+		font-size: $smFont;
 		display: inline-block;
 		color: black;
+		@include transition(1s)
+	}
+
+	@include md {
+		&__link__title {
+			font-size: $lgFont;
+		}
 	}
 }

@@ -1,0 +1,20 @@
+<div class="checkout-steps">
+	<ul class="checkout-steps__list">
+		<li class="checkout-steps__list__item">
+			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout'" routerLinkActive="checkout-steps__list__item__button-active"
+			 [routerLinkActiveOptions]="{ exact: true }">shopping cart</a>
+		</li>
+		<li class="checkout-steps__list__item">
+			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout/shipping'" routerLinkActive="checkout-steps__list__item__button-active">shipping address</a>
+		</li>
+		<li class="checkout-steps__list__item">
+			<a class="checkout-steps__list__item__button">shipping methods</a>
+		</li>
+		<li class="checkout-steps__list__item">
+			<a class="checkout-steps__list__item__button">payment options</a>
+		</li>
+		<li class="checkout-steps__list__item">
+			<a class="checkout-steps__list__item__button checkout-steps__list__item__button-last">complete</a>
+		</li>
+	</ul>
+</div>

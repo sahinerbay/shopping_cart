@@ -49,6 +49,7 @@ import { QuantityButtonComponent } from './components/shared/buttons/quantity-bu
 import { NextButtonComponent } from './components/shared/buttons/next-button/next-button.component';
 import { ShippingComponent } from './components/pages/checkout/shipping/shipping.component';
 import { PreviousButtonComponent } from './components/shared/buttons/previous-button/previous-button.component';
+import { ShoppingCartStepsComponent } from './components/shared/shopping-cart/shopping-cart-steps/shopping-cart-steps.component';
 
 @NgModule({
 	declarations: [
@@ -80,6 +81,7 @@ import { PreviousButtonComponent } from './components/shared/buttons/previous-bu
 		NextButtonComponent,
 		ShippingComponent,
 		PreviousButtonComponent,
+		ShoppingCartStepsComponent,
 	],
 	imports: [
 		BrowserModule,

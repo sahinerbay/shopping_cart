@@ -12,22 +12,12 @@ label {
 }
 
 .shipping-address__header {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	justify-content: flex-end;
 }
 
-.shipping-address__header__title {
-	margin-bottom: 25px;
-}
-
-.shipping-address__header__info {
-	justify-self: end;
-	align-self: center;
-
-	& > span {
-		margin-bottom: 10px;
-		display: inline-block;
-	}
+.shipping-address__header__total {
+	margin-right: 20px;
 }
 
 .shipping-address__form {

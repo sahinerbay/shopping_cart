@@ -3,4 +3,5 @@
 
 .product__button {
 	@include button;
+	font-size: $lgFont;
 }

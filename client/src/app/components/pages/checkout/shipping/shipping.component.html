@@ -1,9 +1,8 @@
+<app-shopping-cart-steps></app-shopping-cart-steps>
+
 <div class="shipping-address__header">
-	<h2 class="shipping-address__header__title">Shipping Address</h2>
-	<div class="shipping-address__header__info">
-		<span>{{shoppingCart.totalQuantity}} items</span>
-		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
-	</div>
+	<span class="shipping-address__header__total">{{shoppingCart.totalQuantity}} items</span>
+	<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
 </div>
 
 <div class="shipping-address__form">

@@ -1,7 +1,14 @@
 @import '~sass/_variables';
 @import '~sass/_mixins';
 
+/*For Home Page Product Prices Only!*/
+/*For Product Prices inside of Shopping-Cart and CheckoutPage, Visit 'shopping-cart-modal.component.scss' and 'checkout.component.scss!*/
 .product__price {
 	font-family: $primary_font;
 	margin: 5px;
+	font-size: $mdFont;
+
+	@include md {
+		font-size: $lgFont;
+	}
 }

@@ -8,6 +8,7 @@
 .shopping-cart {
 
 	&__total-price {
+		font-size: $smFont;
 		margin: 0;
 		text-align: center;
 	}
@@ -15,5 +16,17 @@
 	&__total-price__amount {
 		color: #ce593f;
 		font-weight: 600;
+	}
+
+	@include md {
+		&__total-price {
+			font-size: $mdFont;
+		}
+	}
+
+	@include lg {
+		&__total-price {
+			font-size: $lgFont;
+		}
 	}
 }

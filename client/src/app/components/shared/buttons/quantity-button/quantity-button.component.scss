@@ -29,7 +29,9 @@
 		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 		float: left;
 		margin-bottom: 0;
-		@include quantityButtonSize;
+		width: 15px;
+		height: 10px;
+		text-align: center;
 
 		@include md {
 			padding: 6px 12px;

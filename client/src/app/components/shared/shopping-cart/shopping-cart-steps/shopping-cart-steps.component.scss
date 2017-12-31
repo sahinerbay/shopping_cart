@@ -1,0 +1,81 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.checkout-steps {
+	
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		 
+		 &__item {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: block;
+			float: left;
+			font-family: $primary_font;
+			font-size: $xsFont;
+			text-transform: capitalize;
+			font-weight: 700;
+			letter-spacing: .05em;
+			line-height: 20px;
+			color: hsl(0, 0%, 30%);
+		 }
+		 
+		 &__item__button {
+			display: inline-block;
+			padding: 0 40px 0 0px;
+			color: #d6d6d6;
+			text-decoration: none;
+			height: 40px;
+			width: 85px;
+			box-sizing: border-box;
+			position: relative;
+			perspective: 700px;
+			line-height: 1rem;
+			transition: color .3s; 
+	
+			&:hover {
+				color: #986c6c;
+			}
+	
+			&:after {
+				content: '';
+				width: 10px;
+				height: 10px;
+				border-color: #333;
+				border-style: solid;
+				border-width: 1px 1px 0 0;
+				-webkit-backface-visibility: hidden;
+				outline: 1px solid transparent;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				transition: all .15s ease;
+				transform: rotateZ(45deg) skew(10deg, 10deg);
+			 }
+	
+			 &:hover:after {
+				right: 15px;
+				transform: rotateZ(45deg) skew(-10deg, -10deg);
+			 }
+		 }
+	
+		 &__item__button-active {
+			 color: black;
+	
+			 &:hover {
+				color: black;
+			 }
+		 }
+	
+		 &__item__button-last {
+			line-height: 1.9rem;
+			&:after {
+			content: none;
+			}
+		 }
+	}
+	
+}
