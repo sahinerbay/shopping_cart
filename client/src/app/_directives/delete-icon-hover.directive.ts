@@ -15,8 +15,9 @@ export class DeleteIconHoverDirective {
 		this.hover('1');
 	}
 
-	hover(opacity) {
+	hover(opacity: string) {
 		const parent = this.renderer.parentNode(this.elRef.nativeElement);
 		this.renderer.setStyle(parent, "opacity", opacity)
 	}
+
 }

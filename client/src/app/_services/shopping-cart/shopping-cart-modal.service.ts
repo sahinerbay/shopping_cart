@@ -16,8 +16,11 @@ export class ShoppingCartModalService {
 	}
 
 	toggleModal(): void {
-		if(this.isModalActive.value === true) {
+		if (this.isModalActive.value === true) {
 			this.setModalInactive();
+			setTimeout(() => {
+				this.setModalActive();
+			}, 300)
 		} else {
 			this.setModalActive();
 		}

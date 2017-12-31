@@ -26,9 +26,6 @@ export class AddButtonComponent {
 		/* Add Product to Local Storage*/
 		this.shoppingCartService.addItem(cart);
 
-		/*When screen size is smaller than 480px Set Shopping Cart Modal Active*/ 
-		if (window.matchMedia('screen and (max-width: 480px)').matches) {
-			this.shoppingCartModalService.setModalActive();
-		}
+		this.shoppingCartModalService.toggleModal();
 	}
 }

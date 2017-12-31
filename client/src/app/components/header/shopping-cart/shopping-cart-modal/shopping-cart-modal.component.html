@@ -1,5 +1,5 @@
 <div class="shopping-cart-modal">
-	<div class="shopping-cart-modal__content">
+	<div [@slideState]="isModalActive ? 'show': 'hide'" class="shopping-cart-modal__content">
 
 		<div class="shopping-cart-modal__content__header">
 			<app-shopping-cart-title [totalQuantity]="products.totalQuantity"></app-shopping-cart-title>
@@ -12,7 +12,6 @@
 				<app-shopping-cart-items [productsItems]="products.items"></app-shopping-cart-items>
 			</ul>
 		</div>
-
 
 		<div class="shopping-cart-modal__content__footer">
 			<div class="shopping-cart-modal__content__footer__loaded" *ngIf="isShoppingCartEmpty(products)">

@@ -7,7 +7,7 @@ import { ShoppingCartService } from './shopping-cart.service';
 @Injectable()
 export class ShoppingCartStateService {
 
-	private currentStateShoppingCart = new ReplaySubject<ShoppingCart>();
+	private currentStateShoppingCart = new ReplaySubject<ShoppingCart>(1);
 
 	getState(): Observable<any> {
 		return this.currentStateShoppingCart.asObservable();

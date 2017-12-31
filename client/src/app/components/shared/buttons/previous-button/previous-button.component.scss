@@ -1,0 +1,25 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+:host {
+	text-align: center;
+	align-self: center;
+}
+.previous {
+	@include button;
+
+	text-transform: capitalize;
+	padding: 5px 10px;
+	font-size: .7rem;
+
+	@include sm {
+
+	margin: 0 auto;
+	padding: 10px 20px;
+	font-size: .8rem;
+}
+
+	&:before {
+		border: solid 2px #d6d6d6;
+	}
+}

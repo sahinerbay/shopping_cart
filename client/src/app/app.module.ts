@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CheckoutRoutingModule} from './_routes/checkout-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule }   from '@angular/forms';
 
 /*SERVICES*/
 import { ProductsHttpService } from './_services/products-http.service';
@@ -43,6 +46,9 @@ import { ShoppingCartEmptyComponent } from './components/shared/shopping-cart/sh
 import { CheckoutButtonComponent } from './components/shared/buttons/checkout-button/checkout-button.component';
 import { ShoppingCartItemsComponent } from './components/shared/shopping-cart/shopping-cart-items/shopping-cart-items.component';
 import { QuantityButtonComponent } from './components/shared/buttons/quantity-button/quantity-button.component';
+import { NextButtonComponent } from './components/shared/buttons/next-button/next-button.component';
+import { ShippingComponent } from './components/pages/checkout/shipping/shipping.component';
+import { PreviousButtonComponent } from './components/shared/buttons/previous-button/previous-button.component';
 
 @NgModule({
 	declarations: [
@@ -71,11 +77,17 @@ import { QuantityButtonComponent } from './components/shared/buttons/quantity-bu
 		CheckoutButtonComponent,
 		ShoppingCartItemsComponent,
 		QuantityButtonComponent,
+		NextButtonComponent,
+		ShippingComponent,
+		PreviousButtonComponent,
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
-		AppRoutingModule
+		CheckoutRoutingModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		FormsModule
 	],
 	providers: [
 		ProductsHttpService, 

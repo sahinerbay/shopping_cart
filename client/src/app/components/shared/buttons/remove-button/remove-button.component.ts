@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ShoppingCartService } from './../../../../_services/shopping-cart/shopping-cart.service';
 import { Cart } from './../../../../_interfaces/cart';
 
@@ -12,8 +12,10 @@ export class RemoveButtonComponent {
 	constructor(private shoppingCartService: ShoppingCartService) { }
 
 	@Input() productId: Cart["_id"];
+	@Output() isRemoved = new EventEmitter<boolean>();
 
 	removeProduct(productId: Cart["_id"]): void {
+		this.isRemoved.emit(true);
 		this.shoppingCartService.removeItem(productId);
 	}
 

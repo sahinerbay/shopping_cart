@@ -12,17 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
 
-	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute,) {
-		
-	 }
+	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute,) {}
 
 	private shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
 
 	ngOnInit() {
 		this.shoppingCartSubscription = this.loadShoppingCart();
-		console.log(this.router.url);
-		this.route.url.subscribe((res)=> console.log(res))
+	
 	}
 
 	loadShoppingCart(): Subscription {

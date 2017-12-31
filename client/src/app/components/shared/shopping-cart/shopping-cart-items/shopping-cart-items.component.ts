@@ -1,20 +1,35 @@
-import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
+import { Component, Input, ContentChild, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef   } from '@angular/core';
 import { Cart } from './../../../../_interfaces/cart';
+import { SlideToggleAnimation } from './../../../../_animations/slideToggle.animation';
+import { ShoppingCartStateService } from './../../../../_services/shopping-cart/shopping-cart-state.service';
 
 @Component({
-  selector: 'app-shopping-cart-items',
-  templateUrl: './shopping-cart-items.component.html',
-  styleUrls: ['./shopping-cart-items.component.scss']
+	selector: 'app-shopping-cart-items',
+	templateUrl: './shopping-cart-items.component.html',
+	styleUrls: ['./shopping-cart-items.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	animations: [SlideToggleAnimation],
+	host: { '[@slideState]': '' },
+	
 })
-export class ShoppingCartItemsComponent implements OnInit {
+export class ShoppingCartItemsComponent {
 
-  constructor() { }
+	constructor(private cd: ChangeDetectorRef, private shoppingCartStateService: ShoppingCartStateService) {}
 
-  ngOnInit() {
+	private isRemoved: boolean = false;
+	private state: string = 'hide'
+
+	@ContentChild(TemplateRef) templateRef: TemplateRef<any>;
+
+	@Input() productsItems: Cart;
+
+	onRemove(isRemoved:boolean) {
+		this.isRemoved = isRemoved;
+		
+	}
+
+	trackByProductId(index: number, product: any): string {
+		return product._id;
   }
-
-  @ContentChild(TemplateRef) templateRef:TemplateRef<any>;
-
-  @Input() productsItems: Cart;
 
 }

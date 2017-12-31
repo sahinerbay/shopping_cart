@@ -1,22 +1,25 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck  } from '@angular/core';
 import { ShoppingCartService } from './../../../_services/shopping-cart/shopping-cart.service';
 import { ShoppingCartModalService } from './../../../_services/shopping-cart/shopping-cart-modal.service';
 import { ShoppingCartStateService } from './../../../_services/shopping-cart/shopping-cart-state.service';
 import { ShoppingCart } from './../../../_classes/shopping-cart';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
 	selector: 'app-shopping-cart',
 	templateUrl: './shopping-cart.component.html',
 	styleUrls: ['./shopping-cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit, OnDestroy {
+export class ShoppingCartComponent implements OnInit, OnDestroy, DoCheck {
 
 	constructor(
 		private shoppingCartService: ShoppingCartService, 
 		private shoppingCartModalService: ShoppingCartModalService, 
 		private shoppingCartStateService: ShoppingCartStateService, 
+		private router: Router, private route: ActivatedRoute, private location: Location
 	) { }
 
 	private modalSubsciption: Subscription;
@@ -24,10 +27,19 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 
 	private shoppingCart: ShoppingCart;
 	private isModalActive: boolean = false;
+	private isHomePageOn: boolean = true;
 
 	ngOnInit() {
 		this.fetchShoppingCart();
 		this.getModalActivity();
+	}
+
+	ngDoCheck() {
+		if(this.location.isCurrentPathEqualTo('/') !== true) {
+			this.isHomePageOn = false;
+		} else {
+			this.isHomePageOn = true;
+		}
 	}
 
 	fetchShoppingCart(): Subscription {
@@ -37,8 +49,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
 			});
 	}
 
-	setModalActive(): void {
-		this.shoppingCartModalService.setModalActive();
+	toggleModal(): void {
+		this.shoppingCartModalService.toggleModal();
 	}
 
 	getModalActivity(): Subscription {
