@@ -5,7 +5,6 @@ import { ShoppingCart } from './../../_classes/shopping-cart';
 import { StorageService } from './../storage.service';
 import { environment } from './../../../environments/environment';
 import { ShoppingCartStateService } from './shopping-cart-state.service';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 @Injectable()
 export class ShoppingCartService {
@@ -14,7 +13,9 @@ export class ShoppingCartService {
 	private shoppingCart: ShoppingCart;
 
 	constructor(private storageService: StorageService, private shoppingCartStateService: ShoppingCartStateService) {
+		/* Retrieve LocalStorage API */
 		this.storage = this.storageService.get();
+		/* Update Shopping Cart State Service */
 		this.shoppingCartStateService.setState(this.load());
 	}
 
@@ -47,37 +48,62 @@ export class ShoppingCartService {
 	}
 
 	public removeItem(product_id: Cart["_id"]) {
+		/* Retrieve ShoppingCart Object */
 		let shoppingCart = this.load();
+
+		/*Find The Product by product_id and Remove it.*/
+		/*Return New Shopping Cart Object*/
 		let newShoppingCart = shoppingCart.items.filter((product: Cart) => product._id !== product_id);
 
+		/*Save Shopping Cart*/
 		this.save(Object.assign({}, shoppingCart, {
 			items: newShoppingCart
 		}));
 	}
 
 	public increaseItem(product_id: Cart["_id"]) {
+		/* Retrieve ShoppingCart Object */
 		let shoppingCart = this.load();
+
+		/*Find The Product by product_id and Mutate Shopping Cart Object*/
 		ShoppingCart.increaseQuantity(shoppingCart.items, product_id);
+
+		/*Save Shopping Cart*/
 		this.save(shoppingCart);
 	}
 
 	public decreaseItem(product_id: Cart["_id"]) {
+		/* Retrieve ShoppingCart Object */
 		let shoppingCart = this.load();
+
+		/*Find The Product by product_id and Mutate Shopping Cart Object*/
 		ShoppingCart.decreaseQuantity(shoppingCart.items, product_id);
+
+		/*Save Shopping Cart*/
 		this.save(shoppingCart);
 	}
 
 	public save(shoppingCart: ShoppingCart) {
+		/*Calculate Total Price*/
 		shoppingCart.totalPrice = ShoppingCart.calculateTotalPrice(shoppingCart);
+
+		/*Calculate Total Number Of Items In The Shopping Cart*/
 		shoppingCart.totalQuantity = ShoppingCart.calculateTotalQuantity(shoppingCart);
 
+		/*Update The State of Shopping Cart Service*/
 		this.shoppingCartStateService.setState(shoppingCart);
+
+		/*Update Local Storage*/
 		this.storage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(shoppingCart));
 	}
 
 	public load(): ShoppingCart {
+		/*Create New Shopping Cart Object */
 		let shoppingCart = new ShoppingCart();
 
+		/*Retrieve Current Shopping Cart Object From LocalStorage*/
+		/*If It's Available, Then Update Newly Created Shopping Cart Object*/
+		/*If It's Not Available, Then Return Newly Created Empty Shopping Cart Object*/
 		let shoppingCartObject = JSON.parse(localStorage.getItem(environment.LOCAL_STORAGE_KEY));
 		if (shoppingCartObject !== null) {
 			shoppingCart.update(shoppingCartObject);
@@ -86,9 +112,13 @@ export class ShoppingCartService {
 	}
 
 	public emptyCart() {
+		/*Create New Shopping Cart Object */
 		let shoppingCart = new ShoppingCart();
-		this.storage.clear();
-		this.shoppingCartStateService.setState(shoppingCart);
-	}
 
+		/*Clear Local Storage*/
+		this.storage.clear();
+
+		/*Save Shopping Cart*/
+		this.save(shoppingCart)
+	}
 }

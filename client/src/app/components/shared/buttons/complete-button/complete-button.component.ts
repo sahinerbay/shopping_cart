@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ShoppingCartService } from './../../../../_services/shopping-cart/shopping-cart.service';
 import { Router } from '@angular/router';
+import { LoadingModalService } from './../../../../_services/loading-modal.service';
 
 @Component({
 	selector: 'app-complete-button',
@@ -9,17 +10,15 @@ import { Router } from '@angular/router';
 })
 export class CompleteButtonComponent {
 
-	constructor(private shoppingCartService: ShoppingCartService, private router : Router) { }
-
-	private isLoading: boolean = false;
+	constructor(private shoppingCartService: ShoppingCartService, private router: Router, private loadingModalService:LoadingModalService) { }
 
 	onComplete() {
-		this.isLoading = true;
+		this.loadingModalService.setLoading(true);
 		setTimeout(() => {
-			this.isLoading = false;
+			this.loadingModalService.setLoading(false);
 			this.router.navigate(['/']);
 			this.shoppingCartService.emptyCart();
-		}, 5000)
+		}, 3000)
 	}
 
 }

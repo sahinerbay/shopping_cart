@@ -1,14 +1,15 @@
 <app-shopping-cart-steps></app-shopping-cart-steps>
 
 <div class="checkout__form">
-	<app-payment-form></app-payment-form>
-	<div class="checkout__form__cart-overview">
+	<app-payment-form *ngIf="!isLoading"></app-payment-form>
+	<div *ngIf="!isLoading" class="checkout__form__cart-overview">
 		<span class="checkout__form__cart-overview__total">{{shoppingCart.totalQuantity}} items</span>
 		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
 	</div>
+	<app-loading-modal *ngIf="isLoading"></app-loading-modal>
 </div>
 
-<div class="checkout__footer">
+<div *ngIf="!isLoading" class="checkout__footer">
 	<app-previous-button [content]="'previous'" [previousRoute]="'/checkout/shipping-methods'"></app-previous-button>
 	<app-complete-button></app-complete-button>
 </div>

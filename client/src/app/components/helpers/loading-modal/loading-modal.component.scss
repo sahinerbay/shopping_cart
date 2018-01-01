@@ -1,30 +1,17 @@
 @import '~sass/_variables';
 @import '~sass/_mixins';
+:host {
+	text-align: center;
+	padding-top: 16px;
+	font-family: $primary_font;
+}
 
 .modal {
-	display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #3B3B3B;
 
 	&__content {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-	}
-
-	&__content__message, &__content__cart-details {
-		color: white;
-		font-family: $primary_font;
+		& > p {
+			font-family: $primary_font;
+		}
 	}
 
 }

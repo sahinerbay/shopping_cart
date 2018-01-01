@@ -13,6 +13,7 @@ import { StorageService } from './_services/storage.service';
 import { ShoppingCartService } from './_services/shopping-cart/shopping-cart.service';
 import { ShoppingCartModalService } from './_services/shopping-cart/shopping-cart-modal.service';
 import { ShoppingCartStateService } from './_services/shopping-cart/shopping-cart-state.service';
+import { LoadingModalService } from './_services/loading-modal.service';
 
 /*DIRECTIVES*/
 import { DeleteIconHoverDirective } from './_directives/delete-icon-hover.directive';
@@ -118,6 +119,7 @@ import { LoadingModalComponent } from './components/helpers/loading-modal/loadin
 		ShoppingCartStateService,
 		ShoppingCartService, 
 		ShoppingCartModalService,
+		LoadingModalService,
 		FixPricePipe,
 		ItemsPipe],
 	bootstrap: [AppComponent]
