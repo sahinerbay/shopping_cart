@@ -20,6 +20,7 @@ import { ShoppingCartModalDirective } from './_directives/shopping-cart-modal.di
 
 /*PIPES*/
 import { FixPricePipe } from './_pipes/fix-price.pipe';
+import { ItemsPipe } from './_pipes/items.pipe';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -32,24 +33,36 @@ import { ShoppingCartModalComponent } from './components/header/shopping-cart/sh
 /*COMPONENTS-PAGES*/
 import { HomeComponent } from './components/pages/home/home.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
-/*COMPONENTS-SHARED*/
+import { CheckoutShippingAddressComponent } from './components/pages/checkout/checkout-shipping-address/checkout-shipping-address.component';
+import { CheckoutShippingMethodsComponent } from './components/pages/checkout/checkout-shipping-methods/checkout-shipping-methods.component';
+import { CheckoutPaymentComponent } from './components/pages/checkout/checkout-payment/checkout-payment.component';
+/*COMPONENTS-BUTTONS*/
 import { AddButtonComponent } from './components/shared/buttons/add-button/add-button.component';
 import { RemoveButtonComponent } from './components/shared/buttons/remove-button/remove-button.component';
+import { CheckoutButtonComponent } from './components/shared/buttons/checkout-button/checkout-button.component';
+import { NextButtonComponent } from './components/shared/buttons/next-button/next-button.component';
+import { PreviousButtonComponent } from './components/shared/buttons/previous-button/previous-button.component';
+import { QuantityButtonComponent } from './components/shared/buttons/quantity-button/quantity-button.component';
+import { CompleteButtonComponent } from './components/shared/buttons/complete-button/complete-button.component';
+/*COMPONENTS-FORMS*/
+import { ShippingAddressFormComponent } from './components/shared/forms/shipping-address-form/shipping-address-form.component';
+import { ShippingMethodsFormComponent } from './components/shared/forms/shipping-methods-form/shipping-methods-form.component';
+import { PaymentFormComponent } from './components/shared/forms/payment-form/payment-form.component';
+/*COMPONENTS-PRODUCTS*/
 import { ProductImageComponent } from './components/shared/product/product-image/product-image.component';
 import { ProductPriceComponent } from './components/shared/product/product-price/product-price.component';
 import { ProductTitleComponent } from './components/shared/product/product-title/product-title.component';
 import { ProductTotalQuantityComponent } from './components/shared/product/product-total-quantity/product-total-quantity.component';
 import { ProductTotalPriceComponent } from './components/shared/product/product-total-price/product-total-price.component';
+/*COMPONENTS-SHOPPINGCART*/
 import { ShoppingCartTitleComponent } from './components/shared/shopping-cart/shopping-cart-title/shopping-cart-title.component';
 import { ShoppingCartTotalPriceComponent } from './components/shared/shopping-cart/shopping-cart-total-price/shopping-cart-total-price.component';
 import { ShoppingCartEmptyComponent } from './components/shared/shopping-cart/shopping-cart-empty/shopping-cart-empty.component';
-import { CheckoutButtonComponent } from './components/shared/buttons/checkout-button/checkout-button.component';
 import { ShoppingCartItemsComponent } from './components/shared/shopping-cart/shopping-cart-items/shopping-cart-items.component';
-import { QuantityButtonComponent } from './components/shared/buttons/quantity-button/quantity-button.component';
-import { NextButtonComponent } from './components/shared/buttons/next-button/next-button.component';
-import { ShippingComponent } from './components/pages/checkout/shipping/shipping.component';
-import { PreviousButtonComponent } from './components/shared/buttons/previous-button/previous-button.component';
 import { ShoppingCartStepsComponent } from './components/shared/shopping-cart/shopping-cart-steps/shopping-cart-steps.component';
+/*COMPONENTS HELPERS*/
+import { LoadingModalComponent } from './components/helpers/loading-modal/loading-modal.component';
+
 
 @NgModule({
 	declarations: [
@@ -79,9 +92,17 @@ import { ShoppingCartStepsComponent } from './components/shared/shopping-cart/sh
 		ShoppingCartItemsComponent,
 		QuantityButtonComponent,
 		NextButtonComponent,
-		ShippingComponent,
 		PreviousButtonComponent,
 		ShoppingCartStepsComponent,
+		ShippingAddressFormComponent,
+		CheckoutShippingAddressComponent,
+		CheckoutShippingMethodsComponent,
+		CheckoutPaymentComponent,
+		ShippingMethodsFormComponent,
+		PaymentFormComponent,
+		CompleteButtonComponent,
+		LoadingModalComponent,
+		ItemsPipe,
 	],
 	imports: [
 		BrowserModule,
@@ -97,7 +118,8 @@ import { ShoppingCartStepsComponent } from './components/shared/shopping-cart/sh
 		ShoppingCartStateService,
 		ShoppingCartService, 
 		ShoppingCartModalService,
-		FixPricePipe],
+		FixPricePipe,
+		ItemsPipe],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

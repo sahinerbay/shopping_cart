@@ -1,19 +1,23 @@
 @import '~sass/_variables';
 @import '~sass/_mixins';
 
+:host {
+	overflow-x: auto;
+}
+
 .checkout-steps {
 	
 	&__list {
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		display: flex;
 		 
 		 &__item {
 			list-style: none;
 			margin: 0;
 			padding: 0;
 			display: block;
-			float: left;
 			font-family: $primary_font;
 			font-size: $xsFont;
 			text-transform: capitalize;

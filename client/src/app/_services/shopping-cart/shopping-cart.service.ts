@@ -86,7 +86,9 @@ export class ShoppingCartService {
 	}
 
 	public emptyCart() {
+		let shoppingCart = new ShoppingCart();
 		this.storage.clear();
+		this.shoppingCartStateService.setState(shoppingCart);
 	}
 
 }

@@ -1,0 +1,14 @@
+<app-shopping-cart-steps></app-shopping-cart-steps>
+
+<div class="checkout__form">
+	<app-shipping-address-form></app-shipping-address-form>
+	<div class="checkout__form__cart-overview">
+		<span class="checkout__form__cart-overview__total">{{shoppingCart.totalQuantity}} items</span>
+		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
+	</div>
+</div>
+
+<div class="checkout__footer">
+	<app-previous-button [content]="'previous'" [previousRoute]="'/checkout'"></app-previous-button>
+	<app-next-button [content]="'next'" [nextRoute]="'/checkout/shipping-methods'"></app-next-button>
+</div>

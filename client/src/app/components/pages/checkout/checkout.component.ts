@@ -4,6 +4,7 @@ import { ShoppingCart } from './../../../_classes/shopping-cart';
 import { Subscription } from 'rxjs/Subscription';
 import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ItemsPipe } from './../../../_pipes/items.pipe';
 
 @Component({
 	selector: 'app-checkout',
@@ -12,7 +13,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class CheckoutComponent implements OnInit, OnDestroy {
 
-	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute,) {}
+	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute, private itemsPipe: ItemsPipe) {}
 
 	private shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
@@ -32,6 +33,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 			return true;
 		}
 		return false;
+	}
+
+	showQuantity(cart:ShoppingCart) {
+		return this.itemsPipe.transform(cart.totalQuantity)
 	}
 
 	ngOnDestroy() {

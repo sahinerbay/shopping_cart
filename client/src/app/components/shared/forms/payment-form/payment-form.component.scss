@@ -1,0 +1,43 @@
+@import '~sass/_variables';
+@import '~sass/_mixins';
+
+.form__list {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: 1fr;
+
+	&__item {
+		font-family: $primary_font;
+	
+		& > label {
+			display: inline-block;
+			font-family: $primary_font;
+			font-size: $smFont;
+			font-weight: 600;
+			margin-bottom: 5px;
+			vertical-align: middle;
+		}
+
+		& > p {
+			padding: 0;
+			margin: 0;
+			font-family: $primary_font;
+			font-size: $smFont;
+			margin: 0 0 0 25px;
+			
+		}
+	}
+
+	@include md {
+		width: 80%;
+	}
+	@include lg {
+		width: 70%;
+	}
+	@include xl {
+		width: 60%;
+	}
+}
+

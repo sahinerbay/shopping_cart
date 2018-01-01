@@ -85,16 +85,3 @@
 	width: 10px;
 	height: 10px;
 }
-
-/*Shopping Cart and Checkout Page*/
-@mixin productPrice {
-	margin: 0;
-	font-style: italic;
-}
-
-@mixin productTitle {
-	font-size: $xsFont;
-	margin: 0;
-	font-weight: 600;
-	letter-spacing: .05rem;
-}

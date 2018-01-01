@@ -4,11 +4,11 @@ import { ShoppingCart } from './../../../../_classes/shopping-cart';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-	selector: 'app-shipping',
-	templateUrl: './shipping.component.html',
-	styleUrls: ['./shipping.component.scss']
+	selector: 'app-checkout-shipping-methods',
+	templateUrl: './checkout-shipping-methods.component.html',
+	styleUrls: ['./checkout-shipping-methods.component.scss']
 })
-export class ShippingComponent implements OnInit, OnDestroy {
+export class CheckoutShippingMethodsComponent implements OnInit, OnDestroy {
 
 	constructor(private shoppingCartStateService: ShoppingCartStateService) { }
 
@@ -25,7 +25,6 @@ export class ShippingComponent implements OnInit, OnDestroy {
 	}
 
 	onSubmit(form) {
-		console.log(form)
 	}
 
 	ngOnDestroy() {

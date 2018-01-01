@@ -5,16 +5,17 @@
 			 [routerLinkActiveOptions]="{ exact: true }">shopping cart</a>
 		</li>
 		<li class="checkout-steps__list__item">
-			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout/shipping'" routerLinkActive="checkout-steps__list__item__button-active">shipping address</a>
+			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout/shipping-address'" routerLinkActive="checkout-steps__list__item__button-active" skipLocationChange = "true" >shipping address</a>
 		</li>
 		<li class="checkout-steps__list__item">
-			<a class="checkout-steps__list__item__button">shipping methods</a>
+			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout/shipping-methods'" routerLinkActive="checkout-steps__list__item__button-active" skipLocationChange = "true">shipping methods</a>
 		</li>
 		<li class="checkout-steps__list__item">
-			<a class="checkout-steps__list__item__button">payment options</a>
+			<a class="checkout-steps__list__item__button" [routerLink]="'/checkout/payment'" routerLinkActive="checkout-steps__list__item__button-active" skipLocationChange = "true">payment options</a>
 		</li>
 		<li class="checkout-steps__list__item">
 			<a class="checkout-steps__list__item__button checkout-steps__list__item__button-last">complete</a>
 		</li>
 	</ul>
 </div>
+
