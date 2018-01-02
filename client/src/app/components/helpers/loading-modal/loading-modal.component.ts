@@ -13,7 +13,7 @@ export class LoadingModalComponent implements OnInit, OnDestroy {
 
 	constructor(private shoppingCartStateService: ShoppingCartStateService, private itemsPipe: ItemsPipe) { }
 
-	private shoppingCart: ShoppingCart;
+	public shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
 
 	ngOnInit() {

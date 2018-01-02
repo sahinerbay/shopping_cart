@@ -12,7 +12,7 @@ export class CheckoutShippingAddressComponent implements OnInit, OnDestroy {
 
 	constructor(private shoppingCartStateService: ShoppingCartStateService) { }
 
-	private shoppingCart: ShoppingCart;
+	public shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
 
 	ngOnInit() {

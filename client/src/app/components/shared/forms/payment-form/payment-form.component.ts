@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-payment-form',
-  templateUrl: './payment-form.component.html',
-  styleUrls: ['./payment-form.component.scss']
+	selector: 'app-payment-form',
+	templateUrl: './payment-form.component.html',
+	styleUrls: ['./payment-form.component.scss']
 })
 export class PaymentFormComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
+	onSubmit(form) {
+	}
 }

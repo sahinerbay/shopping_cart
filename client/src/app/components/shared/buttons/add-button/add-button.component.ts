@@ -14,7 +14,7 @@ export class AddButtonComponent {
 
 	@Input() product: Cart;
 
-	addItem(product: Cart, quantity: number): void {
+	addItem(product: Cart): void {
 		/*Create a Cart Object that will be added to local storage inside of ShoppingCart Class*/
 		let cart: Cart = {
 			_id: product._id,

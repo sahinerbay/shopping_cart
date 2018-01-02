@@ -8,7 +8,7 @@ export class ProductsHttpService {
 
 	constructor(private http: HttpClient) { }
 
-	private url: string = environment.API_URI;
+	private url: string = 'https://moodyfoody.herokuapp.com/api/products';
 
 	getProducts(): Observable<any> {
 		return this.http.get(this.url);

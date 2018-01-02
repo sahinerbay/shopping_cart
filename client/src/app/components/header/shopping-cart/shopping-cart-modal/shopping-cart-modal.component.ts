@@ -13,7 +13,7 @@ export class ShoppingCartModalComponent implements OnInit {
 
 	constructor(private shoppingCartModalService: ShoppingCartModalService) { }
 
-	private isModalActive: boolean = false;
+	public isModalActive: boolean = false;
 
 	ngOnInit() {
 		this.shoppingCartModalService.getModalActivity()

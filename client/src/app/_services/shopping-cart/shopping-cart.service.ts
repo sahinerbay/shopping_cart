@@ -3,7 +3,6 @@ import { Observable } from "rxjs/Observable";
 import { Cart } from './../../_interfaces/cart';
 import { ShoppingCart } from './../../_classes/shopping-cart';
 import { StorageService } from './../storage.service';
-import { environment } from './../../../environments/environment';
 import { ShoppingCartStateService } from './shopping-cart-state.service';
 
 @Injectable()
@@ -94,7 +93,7 @@ export class ShoppingCartService {
 		this.shoppingCartStateService.setState(shoppingCart);
 
 		/*Update Local Storage*/
-		this.storage.setItem(environment.LOCAL_STORAGE_KEY, JSON.stringify(shoppingCart));
+		this.storage.setItem('cart', JSON.stringify(shoppingCart));
 	}
 
 	public load(): ShoppingCart {
@@ -104,7 +103,7 @@ export class ShoppingCartService {
 		/*Retrieve Current Shopping Cart Object From LocalStorage*/
 		/*If It's Available, Then Update Newly Created Shopping Cart Object*/
 		/*If It's Not Available, Then Return Newly Created Empty Shopping Cart Object*/
-		let shoppingCartObject = JSON.parse(localStorage.getItem(environment.LOCAL_STORAGE_KEY));
+		let shoppingCartObject = JSON.parse(localStorage.getItem('cart'));
 		if (shoppingCartObject !== null) {
 			shoppingCart.update(shoppingCartObject);
 		}

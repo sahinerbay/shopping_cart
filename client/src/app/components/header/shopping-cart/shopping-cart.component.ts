@@ -25,9 +25,9 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, DoCheck {
 	private modalSubsciption: Subscription;
 	private shoppingCartSubscription: Subscription;
 
-	private shoppingCart: ShoppingCart;
+	public shoppingCart: ShoppingCart;
 	private isModalActive: boolean = false;
-	private isHomePageOn: boolean = true;
+	public isHomePageOn: boolean = true;
 
 	ngOnInit() {
 		this.fetchShoppingCart();

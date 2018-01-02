@@ -15,7 +15,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
 	private shoppingCart: ShoppingCart;
 	private shoppingCartSubscription: Subscription;
 
-	private isLoading: boolean = false;
+	public isLoading: boolean = false;
 	private isLoadingSubscription: Subscription;
 
 	ngOnInit() {
