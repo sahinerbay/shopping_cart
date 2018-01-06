@@ -1,29 +1,29 @@
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
 	<ul class="form__list">
 		<li class="form__list__item">
-			<input type="radio" name="shippingMethods" id="pickupFromStore" #pickupFromStore="ngModel" ngModel>
-			<label for="pickupFromStore">Pick Up In Store -
+			<input type="radio" name="shippingMethods" value="pickUpStore" id="shippingMethod1" #pickupFromStore="ngModel" ngModel>
+			<label for="shippingMethod1">Pick Up In Store -
 				<span>FREE</span>
 			</label>
 			<p>(Delivered to selected stores within 1-3 business days)</p>
 		</li>
 		<li class="form__list__item">
-			<input type="radio" name="shippingMethods" id="upsStandard" #upsStandard="ngModel" ngModel>
-			<label for="upsStandard">Standard (UPS Surepost) - 
+			<input type="radio" name="shippingMethods" value="upsStandard" id="shippingMethod2" #upsStandard="ngModel" ngModel>
+			<label for="shippingMethod2">Standard (UPS Surepost) - 
 				<span>$6.00</span>
 			</label>
 			<p>(Delivery within 3-9 business days)</p>
 		</li>
 		<li class="form__list__item">
-			<input type="radio" name="shippingMethods" id="upsNext" #upsNext="ngModel" ngModel>
-			<label for="upsNext">Next Day (UPS Next) - 	
+			<input type="radio" name="shippingMethods" value="upsNext" id="shippingMethod3" #upsNext="ngModel" ngModel>
+			<label for="shippingMethod3">Next Day (UPS Next) - 	
 				<span>$25.00</span>
 			</label>
 			<p>(Delivery within 1-2 business days)</p>
 		</li>
 		<li class="form__list__item">
-			<input type="radio" name="shippingMethods" id="express" #express="ngModel" ngModel>
-			<label for="express">Express (UPS Ground) - 
+			<input type="radio" name="shippingMethods" value="express" id="shippingMethod4" #express="ngModel" ngModel>
+			<label for="shippingMethod4">Express (UPS Ground) - 
 				<span>$9.50</span>
 			</label>
 			<p>(Delivery within 1-5 business days)</p>

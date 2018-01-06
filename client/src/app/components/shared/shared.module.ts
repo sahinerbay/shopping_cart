@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 /*CUSTOME MODULES*/
-import { PipesModule } from '@app/_pipes';
+import { PipesModule } from '@app/_pipes/pipes.module';
+import { DirectivesModule } from '@app/_directives';
 import { ButtonsModule } from './buttons/buttons.module';
 import { CustomFormsModule } from './forms/forms.module';
 import { ProductModule } from './product/product.module';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
-
-/*DIRECTIVES*/
-import { DeleteIconHoverDirective } from '@app/_directives/delete-icon-hover.directive';
-import { ShoppingCartModalDirective } from '@app/_directives/shopping-cart-modal.directive';
 
 /*COMPONENTS*/
 import { ProductsListComponent } from '@app/components/products-list/products-list.component';
@@ -26,6 +23,7 @@ import { LoadingModalComponent } from '@app/components/helpers/loading-modal/loa
 		CommonModule,
 		RouterModule,
 		PipesModule,
+		DirectivesModule,
 		ButtonsModule,
 		CustomFormsModule,
 		ProductModule,
@@ -36,8 +34,6 @@ import { LoadingModalComponent } from '@app/components/helpers/loading-modal/loa
 		ProductComponent,
 		HeaderComponent,
 		LogoComponent,
-		DeleteIconHoverDirective,
-		ShoppingCartModalDirective,
 		LoadingModalComponent,
 	],
 	exports: [
@@ -45,8 +41,6 @@ import { LoadingModalComponent } from '@app/components/helpers/loading-modal/loa
 		ProductComponent,
 		HeaderComponent,
 		LogoComponent,
-		DeleteIconHoverDirective,
-		ShoppingCartModalDirective,
 		LoadingModalComponent,
 		ButtonsModule,
 		CustomFormsModule,

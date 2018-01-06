@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { PipesModule } from '@app/_pipes';
+import { PipesModule } from '@app/_pipes/pipes.module';
+import { DirectivesModule } from '@app/_directives';
 import { ProductModule } from './../product/product.module';
 import { ButtonsModule } from './../buttons/buttons.module';
 
@@ -20,7 +21,8 @@ import { ShoppingCartModalComponent } from './shopping-cart-modal/shopping-cart-
 		RouterModule,
 		ProductModule,
 		ButtonsModule,
-		PipesModule
+		PipesModule,
+		DirectivesModule
 	],
 	declarations: [
 		ShoppingCartEmptyComponent,

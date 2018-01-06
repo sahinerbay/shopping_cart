@@ -10,7 +10,7 @@ const appRoutes: Routes = [
 		path: 'checkout', loadChildren: './components/checkout/checkout-routing.module#CheckoutRoutingModule',
 		data: { preload: true }
 	},
-	{ path: '', component: ProductsListComponent, data: { state: 'home' } },
+	{ path: '', component: ProductsListComponent},
 	//{ path: '**', component: NotFound }
 ];
 
