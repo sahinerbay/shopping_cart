@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ShoppingCartModalService } from './../../../../_services/shopping-cart/shopping-cart-modal.service';
-import { SlideToggleAnimation } from './../../../../_animations/slideToggle.animation';
+import { ShoppingCartModalService } from '@app/_services';
+import { SlideToggleAnimation } from '@app/_animations';
+import { ShoppingCart } from '@app/_classes';
 
 @Component({
 	selector: 'app-shopping-cart-modal',
@@ -23,7 +24,7 @@ export class ShoppingCartModalComponent implements OnInit {
 
 	}
 
-	@Input() products;
+	@Input() products: ShoppingCart;
 
 	isShoppingCartEmpty(products): boolean {
 		if (products.items.length !== 0) {

@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ShoppingCartStateService } from './../../../_services/shopping-cart/shopping-cart-state.service';
-import { ShoppingCart } from './../../../_classes/shopping-cart';
+import { ShoppingCartStateService } from '@app/_services';
+import { ShoppingCart } from '@app/_classes';
 import { Subscription } from 'rxjs/Subscription';
-import { ItemsPipe } from './../../../_pipes/items.pipe';
+import { ItemsPipe } from '@app/_pipes';
 
 @Component({
 	selector: 'app-loading-modal',

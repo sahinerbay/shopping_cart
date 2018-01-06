@@ -7,11 +7,12 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ItemsPipe } from '@app/_pipes';
 
 @Component({
-	selector: 'app-checkout',
-	templateUrl: './checkout.component.html',
-	styleUrls: ['./checkout.component.scss']
-})
-export class CheckoutComponent implements OnInit, OnDestroy {
+	selector: 'app-checkout-cart',
+	templateUrl: './checkout-cart.component.html',
+	styleUrls: ['./checkout-cart.component.scss']
+ })
+
+export class CheckoutCartComponent implements OnInit, OnDestroy {
 
 	constructor(private shoppingCartStateService: ShoppingCartStateService, private router: Router, private route: ActivatedRoute, private itemsPipe: ItemsPipe) {}
 
@@ -20,7 +21,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.shoppingCartSubscription = this.loadShoppingCart();
-	
 	}
 
 	loadShoppingCart(): Subscription {

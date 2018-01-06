@@ -1,22 +1,2 @@
 <app-shopping-cart-steps></app-shopping-cart-steps>
-
-<div class="checkout-cart__main" *ngIf="isShoppingCartEmpty(shoppingCart)">
-	<ul class="checkout-cart__main__list">
-		<app-shopping-cart-items [productsItems]="shoppingCart.items">
-			<ng-template let-product>
-				<app-quantity-button [productId]="product._id" [productQuantity]="product.quantity"></app-quantity-button>
-			</ng-template>
-		</app-shopping-cart-items>
-	</ul>
-</div>
-
-<div class="checkout-cart__footer">
-	<div class="checkout-cart__footer__loaded" *ngIf="isShoppingCartEmpty(shoppingCart)">
-		<p class="checkout-cart__footer__total-items">{{showQuantity(shoppingCart)}}</p>
-		<app-shopping-cart-total-price [totalPrice]="shoppingCart.totalPrice"></app-shopping-cart-total-price>
-		<app-next-button [content]="'next'" [nextRoute]="'shipping-address'"></app-next-button>
-	</div>
-	<div class="checkout-cart__footer__empty" *ngIf="!isShoppingCartEmpty(shoppingCart)">
-		<app-shopping-cart-empty></app-shopping-cart-empty>
-	</div>
-</div>
+<router-outlet></router-outlet>
