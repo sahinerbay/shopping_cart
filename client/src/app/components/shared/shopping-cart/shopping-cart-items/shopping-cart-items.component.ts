@@ -1,7 +1,7 @@
 import { Component, Input, ContentChild, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef   } from '@angular/core';
-import { Cart } from './../../../../_interfaces/cart';
-import { SlideToggleAnimation } from './../../../../_animations/slideToggle.animation';
-import { ShoppingCartStateService } from './../../../../_services/shopping-cart/shopping-cart-state.service';
+import { Cart } from '@app/_interfaces/cart';
+import { SlideToggleAnimation } from '@app/_animations/slideToggle.animation';
+import { ShoppingCartStateService } from '@app/_services/shopping-cart/shopping-cart-state.service';
 
 @Component({
 	selector: 'app-shopping-cart-items',

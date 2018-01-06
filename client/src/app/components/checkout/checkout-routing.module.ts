@@ -9,7 +9,7 @@ import { CheckoutPaymentComponent } from './checkout-payment/checkout-payment.co
 
 const checkoutRoutes: Routes = [
 	{
-		path: 'checkout', component: CheckoutComponent, data: { state: 'checkout' } ,
+		path: 'checkout', component: CheckoutComponent ,
 		children: [
 			{ path: '',  component: CheckoutCartComponent, data: { state: 'checkout' }},
 			{ path: 'shipping-address', component: CheckoutShippingAddressComponent, data: { state: 'shipping' }},

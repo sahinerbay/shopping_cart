@@ -10,8 +10,8 @@ export const SlideToggleAnimation =
 			opacity: 0,
 			visibility: 'hidden'
 		})),
-		transition('show => hide', animate('300ms ease-out')),
-		transition('hide => show', animate('300ms ease-in')),
+		transition('show => hide', animate('200ms ease-out')),
+		transition('hide => show', animate('200ms ease-in')),
 
 		transition('* => void', [
 			style({ height: '*', opacity: '1', transform: 'translateX(0)', 'box-shadow': '0 1px 4px 0 rgba(0, 0, 0, 0.3)' }),

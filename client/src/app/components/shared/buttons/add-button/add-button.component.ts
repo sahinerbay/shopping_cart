@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Cart } from './../../../../_interfaces/cart';
+import { Cart } from '@app/_interfaces/cart';
 import { ShoppingCartService } from '@app/_services/shopping-cart/shopping-cart.service';
-import { ShoppingCartModalService } from './../../../../_services/shopping-cart/shopping-cart-modal.service';
+import { ShoppingCartModalService } from '@app/_services/shopping-cart/shopping-cart-modal.service';
 
 @Component({
 	selector: 'app-add-button',

@@ -73,7 +73,7 @@
 	 }
 
 	 /*Overwriting styles of reusable components*/
-	 & /deep/ app-product-image {
+	 & ::ng-deep app-product-image {
 		grid-row: 1 / 3;
 		grid-column: 1 / 3;
 		align-self: center;
@@ -86,7 +86,7 @@
 		}
 	}
 
-	& /deep/ app-product-title {
+	& ::ng-deep app-product-title {
 		grid-column: 3 / 6;
 		align-self: start;
 
@@ -99,7 +99,7 @@
 	}
 	
 	
-	& /deep/ app-product-price {
+	& ::ng-deep app-product-price {
 		grid-column: 4 / 6;
 		align-self: end;
 
@@ -110,14 +110,14 @@
 		}
 	}
 	
-	& /deep/ app-remove-button {
+	& ::ng-deep app-remove-button {
 		grid-row: 1 / 3;
 		grid-column: 6 / 7;
 		align-self: center;
 		justify-self: end;
 	}
 	
-	& /deep/ app-product-total-price {
+	& ::ng-deep app-product-total-price {
 		grid-column: 3 / 4;
 		align-self: end;
 
@@ -126,7 +126,7 @@
 		}
 	}
 	
-	& /deep/ app-product-total-quantity {
+	& ::ng-deep app-product-total-quantity {
 		position: absolute;
 		top: 7px;
 		border-radius: 10px;
@@ -145,7 +145,7 @@
 			left: 40%;
 			right: 5%;
 
-			& /deep/ app-product-image { 
+			& ::ng-deep app-product-image { 
 				grid-column: 1 / 2;
 			}
 		}
@@ -156,7 +156,7 @@
 			left: 60%;
 		}
 
-		& /deep/ app-product-title .product__title, & /deep/ app-product-price .product__price, & /deep/ app-product-total-price .product-total-price {
+		& ::ng-deep app-product-title .product__title, & ::ng-deep app-product-price .product__price, & ::ng-deep app-product-total-price .product-total-price {
 			font-size: $smFont;
 		}
 	}
@@ -166,7 +166,7 @@
 			right: 15%;
 		}
 
-		& /deep/ app-product-image .product-image {
+		& ::ng-deep app-product-image .product-image {
 				height: 40px;
 				width: 40px;
 		}
@@ -174,14 +174,14 @@
 
 	@include xl {
 
-		& /deep/ app-product-price {
+		& ::ng-deep app-product-price {
 			grid-column: 3 / 6;
 		}
 
-		& /deep/ app-product-title {
+		& ::ng-deep app-product-title {
 			grid-column: 2 / 6;
 		}
-		& /deep/ app-product-total-price {
+		& ::ng-deep app-product-total-price {
 			grid-column: 2 / 3;
 		}
 	}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ShoppingCartModalService } from './../../../../_services/shopping-cart/shopping-cart-modal.service';
+import { ShoppingCartModalService } from '@app/_services/shopping-cart/shopping-cart-modal.service';
 
 @Component({
 	selector: 'app-checkout-button',

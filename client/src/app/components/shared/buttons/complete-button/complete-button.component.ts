@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ShoppingCartService } from './../../../../_services/shopping-cart/shopping-cart.service';
+import { ShoppingCartService } from '@app/_services/shopping-cart/shopping-cart.service';
 import { Router } from '@angular/router';
-import { LoadingModalService } from './../../../../_services/loading-modal.service';
+import { LoadingModalService } from '@app/_services/loading-modal.service';
 
 @Component({
 	selector: 'app-complete-button',

@@ -11,6 +11,8 @@ import { ShoppingCartTitleComponent } from './shopping-cart-title/shopping-cart-
 import { ShoppingCartTotalPriceComponent } from './shopping-cart-total-price/shopping-cart-total-price.component';
 import { ShoppingCartStepsComponent } from './shopping-cart-steps/shopping-cart-steps.component';
 import { ShoppingCartItemsComponent } from './shopping-cart-items/shopping-cart-items.component';
+import { ShoppingCartModalComponent } from './shopping-cart-modal/shopping-cart-modal.component';
+
 
 @NgModule({
 	imports: [
@@ -26,6 +28,7 @@ import { ShoppingCartItemsComponent } from './shopping-cart-items/shopping-cart-
 		ShoppingCartTotalPriceComponent,
 		ShoppingCartStepsComponent,
 		ShoppingCartItemsComponent,
+		ShoppingCartModalComponent
 	],
 	exports: [
 		ShoppingCartEmptyComponent,
@@ -33,6 +36,7 @@ import { ShoppingCartItemsComponent } from './shopping-cart-items/shopping-cart-
 		ShoppingCartTotalPriceComponent,
 		ShoppingCartStepsComponent,
 		ShoppingCartItemsComponent,
+		ShoppingCartModalComponent
 	]
 })
 export class ShoppingCartModule { }

@@ -18,14 +18,8 @@ import { ProductsListComponent } from '@app/components/products-list/products-li
 import { ProductComponent } from '@app/components/products-list/product/product.component';
 import { HeaderComponent } from '@app/components/header/header.component';
 import { LogoComponent } from '@app/components/header/logo/logo.component';
-import { ShoppingCartComponent } from '@app/components/header/shopping-cart/shopping-cart.component';
-import { ShoppingCartModalComponent } from '@app/components/header/shopping-cart/shopping-cart-modal/shopping-cart-modal.component';
-
-/*COMPONENTS HELPERS*/
 import { LoadingModalComponent } from '@app/components/helpers/loading-modal/loading-modal.component';
 
-/*COMPONENTS-PAGES*/
-import { HomeComponent } from '@app/components/pages/home/home.component';
 
 @NgModule({
 	imports: [
@@ -42,11 +36,8 @@ import { HomeComponent } from '@app/components/pages/home/home.component';
 		ProductComponent,
 		HeaderComponent,
 		LogoComponent,
-		ShoppingCartComponent,
-		ShoppingCartModalComponent,
 		DeleteIconHoverDirective,
 		ShoppingCartModalDirective,
-		HomeComponent,
 		LoadingModalComponent,
 	],
 	exports: [
@@ -54,11 +45,8 @@ import { HomeComponent } from '@app/components/pages/home/home.component';
 		ProductComponent,
 		HeaderComponent,
 		LogoComponent,
-		ShoppingCartComponent,
-		ShoppingCartModalComponent,
 		DeleteIconHoverDirective,
 		ShoppingCartModalDirective,
-		HomeComponent,
 		LoadingModalComponent,
 		ButtonsModule,
 		CustomFormsModule,
